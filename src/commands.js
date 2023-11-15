@@ -8,6 +8,13 @@ const TEST_COMMAND = {
     type: 1,
 };
 
-const ALL_COMMANDS = [TEST_COMMAND];
+// Simple test command
+const EFFICIENCY_COMMAND = {
+    name: 'efficiency',
+    description: 'Get efficiency of current hand',
+    type: 1,
+};
+
+const ALL_COMMANDS = [TEST_COMMAND, EFFICIENCY_COMMAND];
 
 InstallGlobalCommands(process.env.APP_ID, ALL_COMMANDS);

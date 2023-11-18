@@ -13,6 +13,12 @@ client.once(Events.ClientReady, c => {
     const ping = new SlashCommandBuilder()
         .setName('hello')
         .setDescription('Says hello to someone"')
+        .addUserOption(option => 
+            option
+                .setName('user')
+                .setDescription('The user to say hi to')
+                .setRequired(false)
+        )
 
     client.application.commands.create(ping, "518309568632193036");
     client.application.commands.create(hello, "518309568632193036");
@@ -25,6 +31,7 @@ client.on(Events.InteractionCreate, interaction => {
     }
 
     if(interaction.commandName === "hello") {
+        const user = interaction.options.getUser('user') || interaction.user;
         interaction.reply(`Hello ${interaction.user.username}`);
     }
     console.log(interaction);

@@ -6,11 +6,11 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 client.once(Events.ClientReady, c => {
     console.log(`Logged in as ${c.user.tag}`)
 
-    const hello = new SlashCommandBuilder()
+    const ping = new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Replies with "Pong!"')
 
-    const ping = new SlashCommandBuilder()
+    const hello = new SlashCommandBuilder()
         .setName('hello')
         .setDescription('Says hello to someone"')
         .addUserOption(option => 

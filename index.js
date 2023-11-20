@@ -5,34 +5,6 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
 client.once(Events.ClientReady, c => {
     console.log(`Logged in as ${c.user.tag}`)
-
-    const ping = new SlashCommandBuilder()
-        .setName('ping')
-        .setDescription('Replies with "Pong!"')
-
-    const hello = new SlashCommandBuilder()
-        .setName('hello')
-        .setDescription('Says hello to someone"')
-        .addUserOption(option => 
-            option
-                .setName('user')
-                .setDescription('The user to say hi to')
-                .setRequired(false)
-        )
-
-    const echo = new SlashCommandBuilder()
-        .setName('echo')
-        .setDescription('Repeats what you say')
-        .addStringOption(option => 
-            option
-                .setName('text')
-                .setDescription('The user to repeat')
-                .setRequired(true)
-        )
-
-    client.application.commands.create(ping, "518309568632193036");
-    client.application.commands.create(hello, "518309568632193036");
-    client.application.commands.create(echo, "518309568632193036");
 })
 
 client.on(Events.InteractionCreate, interaction => {

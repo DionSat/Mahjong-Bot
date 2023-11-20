@@ -1,29 +1,27 @@
 require('dotenv').config()
-const {Client, Events, GatewayIntentBits, SlashCommandBuilder } = require('discord.js');
+const {Client, Events, GatewayIntentBits, Collection } = require('discord.js');
+const fs = require('node:fs')
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+
+client.commands = getCommands('./commands');
 
 client.once(Events.ClientReady, c => {
     console.log(`Logged in as ${c.user.tag}`)
 })
 
-client.on(Events.InteractionCreate, interaction => {
+client.on(Events.InteractionCreate, (interaction) => {
+
     if(!interaction.isChatInputCommand()) return;
-    if(interaction.commandName === "ping") {
-        interaction.reply("Pong!");
-    }
 
-    if(interaction.commandName === "hello") {
-        const user = interaction.options.getUser('user') || interaction.user;
-        interaction.reply(`Hello ${interaction.user.username}`);
-    }
+    let command = client.commands.get(interaction.commandName);
 
-    if(interaction.commandName === "echo") {
-        const text = interaction.options.getString('text');
-        interaction.reply(text);
+    try {
+        if(interaction.replied) return;
+        command.execute(interaction);
+    } catch (error) {
+        console.error(error);
     }
-
-    console.log(interaction);
 });
 
 client.login(process.env.DISCORD_TOKEN)

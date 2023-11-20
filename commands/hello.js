@@ -12,6 +12,7 @@ module.exports = {
         ),
 
         async execute(interaction) {
-
+            const user = interaction.options.getUser('user') || interaction.user;
+            interaction.reply(`Hello ${interaction.user.username}`);
         }
 }

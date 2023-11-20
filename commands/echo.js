@@ -12,6 +12,7 @@ module.exports = {
         ),
 
         async execute(interaction) {
-
+            const text = interaction.options.getString('text');
+            interaction.reply(text);
         }
 }

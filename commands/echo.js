@@ -1,4 +1,7 @@
-echo = new SlashCommandBuilder()
+const { SlashCommandBuilder } = require('discord.js')
+
+module.exports = {
+        data: new SlashCommandBuilder()
         .setName('echo')
         .setDescription('Repeats what you say')
         .addStringOption(option => 
@@ -6,4 +9,9 @@ echo = new SlashCommandBuilder()
                 .setName('text')
                 .setDescription('The user to repeat')
                 .setRequired(true)
-        )
+        ),
+
+        async execute(interaction) {
+
+        }
+}

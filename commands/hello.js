@@ -1,4 +1,7 @@
-hello = new SlashCommandBuilder()
+const { SlashCommandBuilder } = require('discord.js')
+
+module.exports = {
+        data: new SlashCommandBuilder()
         .setName('hello')
         .setDescription('Says hello to someone"')
         .addUserOption(option => 
@@ -6,4 +9,9 @@ hello = new SlashCommandBuilder()
                 .setName('user')
                 .setDescription('The user to say hi to')
                 .setRequired(false)
-        )
+        ),
+
+        async execute(interaction) {
+
+        }
+}

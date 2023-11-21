@@ -23,20 +23,6 @@ for(const file of eventFiles) {
     }
 }
 
-client.on(Events.InteractionCreate, (interaction) => {
-
-    if(!interaction.isChatInputCommand()) return;
-
-    let command = client.commands.get(interaction.commandName);
-
-    try {
-        if(interaction.replied) return;
-        command.execute(interaction);
-    } catch (error) {
-        console.error(error);
-    }
-});
-
 client.login(process.env.DISCORD_TOKEN)
 
 function getCommands(dir) {

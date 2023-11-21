@@ -10,6 +10,19 @@ client.once(Events.ClientReady, c => {
     console.log(`Logged in as ${c.user.tag}`)
 })
 
+const eventsPath = path.join(__dirname, 'events');
+eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith(".js"));
+
+for(const file of eventFiles) {
+    const filePath = path.join(eventsPath, file);
+    const even = require(filePath);
+    if(event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
 client.on(Events.InteractionCreate, (interaction) => {
 
     if(!interaction.isChatInputCommand()) return;

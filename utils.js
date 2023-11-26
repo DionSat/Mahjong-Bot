@@ -1,14 +1,12 @@
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const videoData = require('../data/yt.json');
+const videoData = require('./data/yt.json');
 const Parser = require('rss-parser');
 const parser = new Parser();
 const fs = require('node:fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
-module.exports = {
-    slashCommands: client.commands = getCommands('./commands')
-}
+slashCommands = client.commands = getCommands('./commands');
 
 async function checkYT() {
     const query = videoData.title.toLowerCase() + videoData.number.toLowerCase();
@@ -71,3 +69,6 @@ function getFiles(dir) {
     }
     return commandFiles;
 }
+
+exports.slashCommands = slashCommands;
+exports.checkYT = checkYT;

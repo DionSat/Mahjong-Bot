@@ -1,6 +1,6 @@
 module.exports = {
     name: 'ready',
-    once: true,
+    once: false,
     async execute(client) {
         console.log(`Logged in as ${client.user.tag}`)
     }

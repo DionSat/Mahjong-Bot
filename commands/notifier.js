@@ -6,7 +6,20 @@ const parser = new Parser();
 module.exports = {
         data: new SlashCommandBuilder()
         .setName('notifier')
-        .setDescription('Notify discord channel of new videos"'),
+        .setDescription('Notify discord channel of new videos"')
+        .addStringOption(option => 
+            option
+                .setName('Channel ID')
+                .setDescription('Youtube Videos Channel ID')
+                .setRequired(true)
+        )
+        .addStringOption(option => 
+            option
+                .setName('Title')
+                .setDescription('Video Title')
+                .setRequired(true)
+        ),
+        
 
         async execute(interaction) {
                 await interaction.deferReply({ephemeral: true});

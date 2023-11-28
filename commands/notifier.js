@@ -24,7 +24,7 @@ module.exports = {
         async execute(interaction) {
                 await interaction.deferReply({ephemeral: true});
 
-                const query = videoData.title.toLowerCase() + videoData.number.toLowerCase();
+                const query = videoData.title.toLowerCase()
                 const channelID = videoData.channelId
                 const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
                 console.log(query);

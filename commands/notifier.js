@@ -7,17 +7,28 @@ module.exports = {
         data: new SlashCommandBuilder()
         .setName('notifier')
         .setDescription('Notify discord channel of new videos"')
-        .addStringOption(option => 
-            option
-                .setName('Channel ID')
-                .setDescription('Youtube Videos Channel ID')
-                .setRequired(true)
-        )
-        .addStringOption(option => 
-            option
-                .setName('Title')
-                .setDescription('Video Title')
-                .setRequired(true)
+        .addSubcommand(command =>
+            command
+                .setName('add')
+                .setDescription('Set up youtube notification system')
+                .addStringOption(option => 
+                    option
+                        .setName('channel-id')
+                        .setDescription('The user to repeat')
+                        .setRequired(true)
+                )
+                .addChannelOption(option => 
+                    option
+                        .setName('channel')
+                        .setDescription('The channel to set the notification in')
+                        .setRequired(true)
+                )
+                .addStringOption(option => 
+                    option
+                        .setName('title')
+                        .setDescription('Title of the video')
+                        .setRequired(true)
+                )
         ),
         
 
@@ -25,7 +36,7 @@ module.exports = {
                 await interaction.deferReply({ephemeral: true});
 
                 const query = videoData.title.toLowerCase()
-                const channelID = videoData.channelId
+                const channelID = videoData.channelID
                 const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
                 console.log(query);
                 console.log(channelID);

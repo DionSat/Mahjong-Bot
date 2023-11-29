@@ -33,10 +33,12 @@ module.exports = {
         
 
         async execute(interaction) {
-                await interaction.deferReply({ephemeral: true});
-
+                const { options } = interaction;
+                const sub = options.getSubcommand();
                 const query = videoData.title.toLowerCase()
                 const channelID = videoData.channelID
+                await interaction.deferReply({ephemeral: true});
+
                 const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
                 console.log(query);
                 console.log(channelID);

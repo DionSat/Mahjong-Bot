@@ -17,16 +17,16 @@ module.exports = {
                         .setDescription('The user to repeat')
                         .setRequired(true)
                 )
-                .addChannelOption(option => 
-                    option
-                        .setName('channel')
-                        .setDescription('The channel to set the notification in')
-                        .setRequired(true)
-                )
                 .addStringOption(option => 
                     option
                         .setName('title')
                         .setDescription('Title of the video')
+                        .setRequired(true)
+                )
+                .addStringOption(option => 
+                    option
+                        .setName('episode')
+                        .setDescription('Episode of the video')
                         .setRequired(true)
                 )
         ),
@@ -38,17 +38,16 @@ module.exports = {
 
                 switch(sub) {
                     case 'add':
-                        if(videoData) {
-                            const query = videoData.title.toLowerCase()
-                            const channelID = videoData.channelID
-     
-                            await interaction.deferReply({ephemeral: true});
-                            const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
-                            console.log(query);
-                            console.log(channelID);
-                            console.log(url);
+                        const ID = options.getString('channel-id')
+                        const title = options.getString('title')
+                        const episode = options.getString('episode')
+                        if(videoData.title !== title && videoData.episode !== episode) {
+                            const query = title + " - Episode " + episode
 
-                            let data = await parser.parseURL(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`)
+                            await interaction.deferReply({ephemeral: true});
+                            const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${ID}`;
+
+                            let data = await parser.parseURL(url)
                             let { author } = data.items[0]
 
                             let link = ""
@@ -75,6 +74,8 @@ module.exports = {
                             } catch(e) {
                                 return await interaction.editReply({ content: `There are **SO MANY** video matching ${query} that I cant send a message with them`, ephemeral: true})
                             }
+                        } else {
+                            return
                         }
 
                 }

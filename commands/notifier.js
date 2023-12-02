@@ -2,6 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 const videoData = require('../data/yt.json');
 const Parser = require('rss-parser');
 const parser = new Parser();
+const fs = require('fs');
 
 module.exports = {
         data: new SlashCommandBuilder()
@@ -11,7 +12,12 @@ module.exports = {
 
         async execute(interaction) {
                 if(videoData.title) {
-                    const query = title;
+                    // Parse the current title and increment the episode to look for a new one
+                    const query = videoData.title.replace(/(\d+)+/g, function(match, number) {
+                        return parseInt(number) + 1;
+                    }).toLowerCase();
+                    const ID = videoData.channelID;
+                    console.log(query)
 
                     await interaction.deferReply({ephemeral: true});
                     const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${ID}`;
@@ -20,33 +26,27 @@ module.exports = {
 
                     let link = "";
                     let videoTitle = "";
-                    let maxEpisode = 0;
 
                     await data.items.forEach(async value => {
                         const title = value.title.toLowerCase();
 
                         if (title.includes(query)) {
-                            episode = title.match(/(\d+)/);
-                            maxEpisode = Math.max(maxEpisode, episode);
                             link = value.link;
                             videoTitle = value.title;
                         } else {
                             return;
                         }
                     });
-                    episode = videoTitle.match(/(\d+)/);
+                    console.log(videoTitle);
+                    console.log(link);
 
                     if (link.length === 0 || videoTitle.length === 0) {
-                        // return await interaction.editReply({ content: `There are no **recent** videos matching \`${query}\` on  ${author}'s channel!`, ephemeral: true })
                         return await interaction.deleteReply();
                     } else {
-                        await interaction.editReply({ content: `**Video Matching** \`${query}\` \n \n\`\`\`${videoTitle}\`\`\` \n \n \n> ${link} \n \n*Please note, not all links will be embedded*`, ephemeral: true});
+                        videoData.title = videoTitle; // Update JSON in memory object with new current title
+                        fs.writeFileSync('./data/yt.json', JSON.stringify(videoData)); // Write JSON object to json file
+                        await interaction.editReply({ content: `\`\`\`${videoTitle}\`\`\` \n \n \n> ${link} \n \n*Please note, not all links will be embedded*`, ephemeral: true});
                     }
-                    // try {
-                    //     await interaction.editReply({ content: `**Video Matching** \`${query}\` \n \n\`\`\`${videoTitle}\`\`\` \n \n \n> ${link} \n \n*Please note, not all links will be embedded*`, ephemeral: true})
-                    // } catch(e) {
-                    //     return await interaction.editReply({ content: `There are **SO MANY** video matching ${query} that I cant send a message with them`, ephemeral: true})
-                    // }
                 } else {
                     return
                 }

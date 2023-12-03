@@ -18,4 +18,12 @@ for(const file of eventFiles) {
     }
 }
 
+// function notifierUpdate(time) {
+//     settimeout(function() {
+        
+//     }, time)
+// }
+
+// starttimer(600000) //one minute interval
+
 client.login(process.env.DISCORD_TOKEN)

@@ -39,4 +39,3 @@ function getFiles(dir) {
 }
 
 exports.slashCommands = slashCommands;
-exports.checkYT = checkYT;

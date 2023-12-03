@@ -8,38 +8,6 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
 slashCommands = client.commands = getCommands('./commands');
 
-async function checkYT() {
-    const query = videoData.title.toLowerCase() + videoData.number.toLowerCase();
-    const channelID = videoData.channelId
-    const url = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`;
-    console.log(query);
-    console.log(channelID);
-    console.log(url);
-
-    let data = await parser.parseURL(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelID}`)
-
-    let link = ""
-    let videoTitle = ""
-
-    await data.items.forEach(async value => {
-        const title = value.title.toLowerCase();
-
-        if (title.includes(query)) {
-            link = value.link;
-            videoTitle = value.title
-        } else {
-            return;
-        }
-    });
-    console.log(link);
-    console.log(videoTitle);
-
-    if (link.length === 0 || videoTitle.length === 0) {
-        return false;
-    }
-    return true;
-}
-
 function getCommands(dir) {
     let commands = new Collection();
     const commandFiles = getFiles(dir);

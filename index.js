@@ -1,6 +1,5 @@
 require('dotenv').config()
 const {Client, GatewayIntentBits } = require('discord.js');
-const { checkYT } = require('./utils.js')
 const fs = require('node:fs')
 const path = require('node:path');
 
@@ -15,9 +14,7 @@ for(const file of eventFiles) {
     if(event.once) {
         client.once(event.name, (...args) => event.execute(...args));
     } else {
-        client.on(event.name, (...args) => {
-            event.execute(...args)
-        });
+        client.on(event.name, (...args) => event.execute(...args));
     }
 }
 

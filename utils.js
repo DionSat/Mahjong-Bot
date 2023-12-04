@@ -1,7 +1,4 @@
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
-const videoData = require('./data/yt.json');
-const Parser = require('rss-parser');
-const parser = new Parser();
 const fs = require('node:fs');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })

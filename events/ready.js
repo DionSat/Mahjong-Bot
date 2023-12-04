@@ -1,5 +1,5 @@
 let { checkUpdates } = require('../functions/notifierLoop.js');
-const { setIntervalAsync, clearIntervalAsync } = require('set-interval-async');
+const { setIntervalAsync } = require('set-interval-async');
 
 module.exports = {
     name: 'ready',

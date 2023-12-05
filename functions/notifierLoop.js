@@ -43,7 +43,7 @@ module.exports = {
             } else {
                 videoData.title = videoTitle; // Update JSON in memory object with new current title
                 fs.writeFileSync('./data/yt.json', JSON.stringify(videoData)); // Write JSON object to json file
-                await channel.send({ content: `\`\`\`${videoTitle}\`\`\` \n> ${link} \n \n*Please note, not all links will be embedded*`, ephemeral: true });
+                await channel.send({ content: `\`${videoTitle}\` \n> ${link} \n \n`, ephemeral: true });
                 return;
             }
         }

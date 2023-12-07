@@ -11,7 +11,7 @@ module.exports = {
             console.log('checking...');
             setIntervalAsync(async () => {
                 await checkUpdates(client)
-              }, 30000);
+              }, 3600000);
         }
     }
 }

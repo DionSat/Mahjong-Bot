@@ -1,0 +1,1686 @@
+[{
+"romaji": "Agari",
+"kanji": "和がり",
+"english": "Win",
+"explanation": "Generic call for winning a hand."
+},
+{
+"romaji": "Agaripai",
+"kanji": "和がり牌",
+"english": "Winning tile",
+"explanation": "The 14th tile that completes a hand."
+},
+{
+"romaji": "Agariyame",
+"kanji": "和了り止め",
+"english": "",
+"explanation": "An end game condition that allows the last dealer to declare the end of the game, when in possession of the first place position."
+},
+{
+"romaji": "Aidayonken",
+"kanji": "間四軒",
+"english": "Four in between",
+"explanation": "An interval of four between two discarded number tiles. Usually indicates dangerous waits. A discarded 1 and 6 make a 2—5 wait very probable."
+},
+{
+"romaji": "Akapai",
+"kanji": "赤牌",
+"english": "Red dora",
+"explanation": "Red tiles that count as Dora. Usually fives, but not always."
+},
+{
+"romaji": "An",
+"kanji": "暗",
+"english": "Closed, concealed",
+"explanation": "Means \"dark\", refers to tiles that are concealed in the hand."
+},
+{
+"romaji": "Anjun",
+"kanji": "暗順",
+"english": "Concealed sequence",
+"explanation": "Three self-drawn consecutive tiles of the same suit, used as one of the four tile groups in a regular hand. An open sequence would be a minjun, the general term for a sequence is shuntsu."
+},
+{
+"romaji": "Ankan",
+"kanji": "暗槓",
+"english": "Concealed kan",
+"explanation": "Four self-drawn identical tiles set aside as a kantsu. Declaring an ankan does not open the hand if it was previously closed."
+},
+{
+"romaji": "Ankou",
+"kanji": "暗刻",
+"english": "Concealed triplet",
+"explanation": "Three self-drawn identical tiles, used as one of the four tile groups in a regular hand. Compare with the yaku names san ankou and suu ankou. An open triplet would be a minkou, and the general term for any triplet is koutsu."
+},
+{
+"romaji": "Anpai",
+"kanji": "安牌",
+"english": "Safe tile",
+"explanation": "Safe tile, or tiles not subject to \"agari\" (to be called as winning tiles)."
+},
+{
+"romaji": "Aotenjou",
+"kanji": "青天井",
+"english": "No capping",
+"explanation": "A rarely used rule, which eliminates the score cappings \"mangan\", \"haneman\", etc., and scores all hands as directly with the scoring formula."
+},
+{
+"romaji": "Ari",
+"kanji": "あり,アリ,有り",
+"english": "In effect, on",
+"explanation": "States that the preceding rule is used, as in akadora ari for playing with red fives. Opposite of nashi."
+},
+{
+"romaji": "Ari ari",
+"kanji": "アリアリ",
+"english": "",
+"explanation": "Ruleset which allows kuitan and atozuke. Most common basic set of rules in Japan."
+},
+{
+"romaji": "Atama",
+"kanji": "頭",
+"english": "Pair, eye",
+"explanation": "The pair in a standard mahjong hand. Also \"jantou\"."
+},
+{
+"romaji": "Atamahane",
+"kanji": "頭跳ね",
+"english": "Head bump",
+"explanation": "A rule that allows only one Ron at a time; the closest to the discarder in turn order takes priority."
+},
+{
+"romaji": "Atozuke",
+"kanji": "後付け",
+"english": "After-attach",
+"explanation": "Allows a hand to win despite having no guaranteed yaku while in tenpai, as long as the winning tile generates a yaku."
+},
+{
+"romaji": "Awaseuchi",
+"kanji": "合わせ打ち",
+"english": "",
+"explanation": "Discarding the same tile as someone else, to avoid dealing into their hand."
+},
+{
+"romaji": "Ba",
+"kanji": "場",
+"english": "Wind round",
+"explanation": "A \"wind round\", e.g. tonba (east round) or nanba (south round)."
+},
+{
+"romaji": "Baiman",
+"kanji": "倍満",
+"english": "",
+"explanation": "A hand worth 8 to 10 han."
+},
+{
+"romaji": "Bakahon",
+"kanji": "バカホン",
+"english": "",
+"explanation": "Slang for \"honitsu nomi\" with no extra yaku or dora."
+},
+{
+"romaji": "Bakaze",
+"kanji": "場風",
+"english": "Round wind",
+"explanation": "Round wind."
+},
+{
+"romaji": "Barai",
+"kanji": "払い",
+"english": "Payment",
+"explanation": "A payment.  Also \"furikomi\"."
+},
+{
+"romaji": "Basengo",
+"kanji": "場千五",
+"english": "",
+"explanation": "A rule where each honba counter is worth of 1500 points instead of the regular 300 points."
+},
+{
+"romaji": "Bazoro",
+"kanji": "場ゾロ",
+"english": "",
+"explanation": "The two base Han used when calculating score, given by default rather than from yaku."
+},
+{
+"romaji": "Betaori",
+"kanji": "ベタ降り",
+"english": "Full defense",
+"explanation": "A strategy that focuses entirely on avoiding dealing into opponents’ hands, with no intention of developing one’s own hand."
+},
+{
+"romaji": "Chakan",
+"kanji": "加槓",
+"english": "Added kan",
+"explanation": "A kantsu that was upgraded from a minkou."
+},
+{
+"romaji": "Shouminkan",
+"kanji": "小明槓",
+"english": "Added kan",
+"explanation": "A kantsu that was upgraded from a minkou."
+},
+{
+"romaji": "Chii",
+"kanji": "チー",
+"english": "",
+"explanation": "The call used to make a minjun from an opponent’s discard."
+},
+{
+"romaji": "Chombo",
+"kanji": "冲合",
+"english": "",
+"explanation": "A penalty, applied to particularly unacceptable mahjong plays, such as winning with an invalid hand or destroying the wall.  Typically, the penalty results in a mangan payment to all players and restarts the current round.  Otherwise, penalty values may be subject to Rule variation."
+},
+{
+"romaji": "Chunchan",
+"kanji": "中張",
+"english": "Simples",
+"explanation": "The zone of tiles numbered from 2 through 8, representing tiles that can be grouped with tiles on each of its sides."
+},
+{
+"romaji": "Chunchanhai",
+"kanji": "中張牌",
+"english": "Simples",
+"explanation": "The tiles in the zone numbered from 2 through 8. See tanyao for related yaku. Opposite of \"yaochuuhai\"."
+},
+{
+"romaji": "Daburon",
+"kanji": "ダブロン",
+"english": "Double ron",
+"explanation": "A rule that allows two people to simultaneously win from the same discarded tile."
+},
+{
+"romaji": "Daiminkan",
+"kanji": "大明槓",
+"english": "Open kan",
+"explanation": "A kan formed with possession of three tile types, and calling on the discarded fourth tile."
+},
+{
+"romaji": "Damaten",
+"kanji": "黙聴",
+"english": "Hidden tenpai",
+"explanation": "A tactic of holding tenpai without calling riichi."
+},
+{
+"romaji": "Dejitaru",
+"kanji": "デジタル",
+"english": "Digital",
+"explanation": "A school of thought focused on the outcome of a game, explained by probability and statistics."
+},
+{
+"romaji": "Dora",
+"kanji": "ドラ",
+"english": "Bonus tile",
+"explanation": "A feature to the game which rewards han to a hand, while in possession of tiles indicated by the revealed tile from the dead wall."
+},
+{
+"romaji": "Dorahyouji",
+"kanji": "ドラ表示",
+"english": "Dora indicator",
+"explanation": "The flipped tile on the dead wall, indicating the dora."
+},
+{
+"romaji": "Enchousen",
+"kanji": "延長戦",
+"english": "Overtime",
+"explanation": "Extra game round, in the event where no player scores more than the target points at the end of a normal game."
+},
+{
+"romaji": "Fu",
+"kanji": "符",
+"english": "Mini-points",
+"explanation": "A unit used to measure the hand's score, based on tile group and wait composition."
+},
+{
+"romaji": "Furikomi",
+"kanji": "振り込み",
+"english": "Payment",
+"explanation": "A payment, also \"barai\"."
+},
+{
+"romaji": "Furiten",
+"kanji": "振聴",
+"english": "Sacred discard",
+"explanation": "A rule that disables a player's ability to win by discard, due to the presence of a winning tile in the discard and/or the declining of a win during riichi."
+},
+{
+"romaji": "Fuuro",
+"kanji": "副露",
+"english": "tile group",
+"explanation": "Calling of discarded tile or closed kan, also \"naki\"."
+},
+{
+"romaji": "Fuutei",
+"kanji": "副底",
+"english": "Base fu",
+"explanation": "The 20 base Fu used when calculating score, given by default rather than from composition."
+},
+{
+"romaji": "Genbutsu",
+"kanji": "現物",
+"english": "Safe tile",
+"explanation": "A 100% safe tile."
+},
+{
+"romaji": "Goumii",
+"kanji": "ゴーミー",
+"english": "Trash, garbage",
+"explanation": "The cheapest tsumo value, of 500 points from the dealer and 300 points from the non-dealers."
+},
+{
+"romaji": "Gyakuten",
+"kanji": "逆転",
+"english": "Passing, reversal",
+"explanation": "Refers to a situation, where a player passes up another player in points, at the end of the game."
+},
+{
+"romaji": "Haipai",
+"kanji": "配牌",
+"english": "Start hand",
+"explanation": "The players' dealt tiles at the beginning of a hand."
+},
+{
+"romaji": "Haiteihai",
+"kanji": "海底牌",
+"english": "Last draw",
+"explanation": "The last drawable tile in the wall."
+},
+{
+"romaji": "Haiyama",
+"kanji": "牌山",
+"english": "Wall",
+"explanation": "The walls from which tiles are drawn."
+},
+{
+"romaji": "Han",
+"kanji": "飜",
+"english": "",
+"explanation": "The hand value count based on yaku value and/or dora."
+},
+{
+"romaji": "Hanchan",
+"kanji": "半荘",
+"english": "Full East-South game",
+"explanation": "A game consisting of an East and South round."
+},
+{
+"romaji": "Haneman",
+"kanji": "跳満",
+"english": "",
+"explanation": "A hand worth 6 or 7 han."
+},
+{
+"romaji": "Harabote",
+"kanji": "腹ボテ",
+"english": "",
+"explanation": "A Shanpon or Tanki wait embedded inside a Shuntsu. For example, 4556 waiting on 5."
+},
+{
+"romaji": "Hikkake",
+"kanji": "引っ掛け",
+"english": "Trap",
+"explanation": "Discard tiles indicating particular tiles as safe, when in fact, they are not - contrary to standard defense reading."
+},
+{
+"romaji": "Honba",
+"kanji": "本場",
+"english": "Repeat counter",
+"explanation": "A counter to indicate the number of hands in-between winning hands, usually indicated by 100-point sticks."
+},
+{
+"romaji": "Houjuu",
+"kanji": "放銃",
+"english": "Deal in",
+"explanation": "To deal into a hand."
+},
+{
+"romaji": "Houra",
+"kanji": "和了",
+"english": "",
+"explanation": "To win a hand"
+},
+{
+"romaji": "Houteihai",
+"kanji": "河底牌",
+"english": "Last discard",
+"explanation": "The very last discarded tile for a hand, which may not subject to any tile calls other than \"ron\"."
+},
+{
+"romaji": "Iichan",
+"kanji": "一荘",
+"english": "4 round game",
+"explanation": "A game consisting of East, South, West, and North rounds. More common in Chinese variants."
+},
+{
+"romaji": "Ikasama",
+"kanji": "イカサマ",
+"english": "",
+"explanation": "To cheat using sleight of hand, etc."
+},
+{
+"romaji": "Inchiki",
+"kanji": "インチキ",
+"english": "Rigging",
+"explanation": "Cheating by manipulating devices integral to the game (autodealer, game client) or outside it (cameras, telegraphs, radio)."
+},
+{
+"romaji": "Jansou",
+"kanji": "雀荘",
+"english": "Mahjong parlor",
+"explanation": "A public place specifically used to host and cater mahjong play"
+},
+{
+"romaji": "Jantou",
+"kanji": "雀頭",
+"english": "Pair, eye",
+"explanation": "The pair in a standard mahjong hand. Also \"atama\"."
+},
+{
+"romaji": "Jigokumachi",
+"kanji": "地獄待ち",
+"english": "Hell wait",
+"explanation": "A wait in which all but one of the winning tiles are visible or claimed."
+},
+{
+"romaji": "Jihai",
+"kanji": "字牌",
+"english": "Honor tiles",
+"explanation": "The honor tiles (sangenpai and kazehai)."
+},
+{
+"romaji": "Jikaze",
+"kanji": "自風",
+"english": "Self wind",
+"explanation": "Your seat wind."
+},
+{
+"romaji": "Jun",
+"kanji": "巡",
+"english": "Turn",
+"explanation": "The turn number within a round."
+},
+{
+"romaji": "Kabe",
+"kanji": "壁",
+"english": "",
+"explanation": "A tile-counting technique that measures the possibility of someone making Shuntsu based on how many instances of a tile are visible."
+},
+{
+"romaji": "Kakan",
+"kanji": "加槓",
+"english": "Upgraded kan",
+"explanation": "A kan that was upgraded from a tile grouped set, from a player's own draws or hand."
+},
+{
+"romaji": "Kamicha",
+"kanji": "上家",
+"english": "",
+"explanation": "The player to the left of one's perspective."
+},
+{
+"romaji": "Kandora",
+"kanji": "カンドラ",
+"english": "Added dora",
+"explanation": "Additional dora indicators, when the call for kan is invoked."
+},
+{
+"romaji": "Kata agari",
+"kanji": "片和がり",
+"english": "",
+"explanation": "A hand tenpai for at least one invalid tile."
+},
+{
+"romaji": "Kawa",
+"kanji": "河",
+"english": "Pond, Discard pile",
+"explanation": "Meaning \"river\".  This describes the discarded tiles."
+},
+{
+"romaji": "Kantsu",
+"kanji": "槓子",
+"english": "Quad",
+"explanation": "A tile group of four identical tiles, which must be declared as kan to be counted as such."
+},
+{
+"romaji": "Kanchan",
+"kanji": "嵌張",
+"english": "Closed wait",
+"explanation": "A wait that completes the inside of a Shuntsu, like a 4-6 waiting on 5."
+},
+{
+"romaji": "Kandora",
+"kanji": "カンドラ",
+"english": "",
+"explanation": "Additional dora indicators revealed after calling kan."
+},
+{
+"romaji": "Karaten",
+"kanji": "カラテン",
+"english": "Empty tenpai",
+"explanation": "The state of a tenpai hand, by which all available waiting tiles are not available due to discards and/or dora indicators."
+},
+{
+"romaji": "Kazehai",
+"kanji": "風牌",
+"english": "Winds",
+"explanation": "Wind tiles."
+},
+{
+"romaji": "Keishiki tenpai",
+"kanji": "形式聴牌",
+"english": "",
+"explanation": "A state of tenpai that contains no yaku.  As long as the hand is waiting for a tile that could exist anywhere outside a player's hand and calls, the hand is considered tenpai."
+},
+{
+"romaji": "Kikenhai",
+"kanji": "危険牌",
+"english": "Dangerous tile",
+"explanation": "Dangerous tile, or a tile that may be likely used by another player to win with."
+},
+{
+"romaji": "Kiriage Mangan",
+"kanji": "切り上げ満貫",
+"english": "Rounded Mangan",
+"explanation": "A rule where 3 Han 60 Fu and 4 Han 30 Fu are rounded up to Mangan."
+},
+{
+"romaji": "Kiru",
+"kanji": "切る",
+"english": "Discard",
+"explanation": "To discard a tile."
+},
+{
+"romaji": "Koutsu",
+"kanji": "刻子",
+"english": "Triplet",
+"explanation": "A tile group of three identical tiles."
+},
+{
+"romaji": "Kuikae",
+"kanji": "喰い替え",
+"english": "",
+"explanation": "A rule that allows you to call a tile, then discard another tile that could have completed the tile group. For example, calling a 1 when you have 234 and then discard a 4."
+},
+{
+"romaji": "Kuisagari",
+"kanji": "喰い下がり",
+"english": "",
+"explanation": "A property of some yaku that reduces the han value by 1 when the hand is open."
+},
+{
+"romaji": "Kuitan",
+"kanji": "喰い断",
+"english": "Open tanyao",
+"explanation": "A rule that allows tanyao to be open."
+},
+{
+"romaji": "Kyoku",
+"kanji": "局",
+"english": "Round, Hand session",
+"explanation": "A portion of the game, starting from the dealing of tiles and ends with the declaration of a win, Tochuu aborted hand, or draw. Examples: East Round 1.  South Round 2."
+},
+{
+"romaji": "Machi",
+"kanji": "待ち",
+"english": "Wait pattern",
+"explanation": "The tiles waiting for with a tenpai hand."
+},
+{
+"romaji": "Mangan",
+"kanji": "満貫",
+"english": "",
+"explanation": "A cap applied to the standard scoring equation.  Hands worth 3 han 70+ fu. 4 han 40+ fu, or 5 han are valued at mangan."
+},
+{
+"romaji": "Manzu",
+"kanji": "萬子",
+"english": "Characters",
+"explanation": "One of the three numbered suits, consisting of a kanji number plus 萬, meaning 10000."
+},
+{
+"romaji": "Mawashiuchi",
+"kanji": "回し打ち",
+"english": "Avoidance play",
+"explanation": "The strategy of attempting to develop a hand, while discarding only safe tiles."
+},
+{
+"romaji": "Mentanpin",
+"kanji": "メンタンピン",
+"english": "",
+"explanation": "Abbreviation for Menzen-Tanyao-Pinfu, a common set of yaku."
+},
+{
+"romaji": "Mentsu",
+"kanji": "面子",
+"english": "tile group, Group (tiles)",
+"explanation": "The tile groups: koutsu, shuntsu, and kantsu."
+},
+{
+"romaji": "Menzen",
+"kanji": "門前",
+"english": "Closed hand",
+"explanation": "A fully closed hand, thus no open tile groups."
+},
+{
+"romaji": "Min",
+"kanji": "明",
+"english": "Open",
+"explanation": "Meaning \"light\", refers to tiles that have been exposed by calling."
+},
+{
+"romaji": "Minjun",
+"kanji": "明順",
+"english": "Open sequence",
+"explanation": "An open shuntsu, or a sequence of three consecutive tiles, formed by calling chii on the previously missing tile. A concealed shuntsu would be an anjun."
+},
+{
+"romaji": "Minkou",
+"kanji": "明刻",
+"english": "Open triplet",
+"explanation": "An open koutsu made by calling a discarded tile."
+},
+{
+"romaji": "Minogashi",
+"kanji": "見逃し",
+"english": "Let free",
+"explanation": "The act of declining a winning tile."
+},
+{
+"romaji": "Moupai",
+"kanji": "盲牌",
+"english": "Blind touch",
+"explanation": "The act of reading a tile by touch, instead of looking at the tile."
+},
+{
+"romaji": "Naki",
+"kanji": "鳴き",
+"english": "",
+"explanation": "Calling a discarded tile."
+},
+{
+"romaji": "Nan",
+"kanji": "南",
+"english": "South",
+"explanation": "South wind tile."
+},
+{
+"romaji": "Nashi",
+"kanji": "なし,ナシ,無し",
+"english": "Invalid, off",
+"explanation": "States that the preceding rule is not in effect.\nFor example, as in kuikae nashi for disallowing players to call a tile and immediately discard another tile which would have also completed the called tile group."
+},
+{
+"romaji": "Nashi Nashi",
+"kanji": "ナシナシ",
+"english": "",
+"explanation": "Ruleset which disallows kuitan and atozuke. Opposite of Ari Ari."
+},
+{
+"romaji": "Nobetan",
+"kanji": "延べ単",
+"english": "Extended tanki",
+"explanation": "A double Tanki wait, e.g. 4567 waiting on 4 or 7."
+},
+{
+"romaji": "Nomi",
+"kanji": "ノミ",
+"english": "Only",
+"explanation": "A term referring to a hand containing just a single yaku and no dora.  The term is not applicable to nagashi mangan or yakuman."
+},
+{
+"romaji": "Noten",
+"kanji": "ノーテン",
+"english": "No tenpai",
+"explanation": "When your hand is not in tenpai at the end of the round."
+},
+{
+"romaji": "Noten bappu",
+"kanji": "ノーテン罰符",
+"english": "Noten penalty",
+"explanation": "A payment made at the end of a round by those who are not in tenpai (or choose not to reveal their hands) to those who are in tenpai."
+},
+{
+"romaji": "Nukidora",
+"kanji": "抜きドラ",
+"english": "Extracted dora",
+"explanation": "A tile that counts as Dora when extracted from the hand, e.g. flower tiles or the Pei (North) in most three-player variants."
+},
+{
+"romaji": "Okaruto",
+"kanji": "オカルト",
+"english": "Occult, Superstition",
+"explanation": "A school of thought tying game outcome with luck, flow, mahjong demons, psychology, etc."
+},
+{
+"romaji": "Oka",
+"kanji": "オカ",
+"english": "Winner bonus",
+"explanation": "First place bonus applied when calculating uma."
+},
+{
+"romaji": "Oikake riichi",
+"kanji": "追いかけリーチ",
+"english": "Riichi roulette",
+"explanation": "To declare riichi after someone else rather than defend."
+},
+{
+"romaji": "Okurikan",
+"kanji": "送り槓",
+"english": "",
+"explanation": "Four tiles that could be called for kan, but rather left undeclared in order to use the tiles for other tile groups."
+},
+{
+"romaji": "Oorasu",
+"kanji": "オーラス",
+"english": "All last, Last hand",
+"explanation": "The final regular hand of a game."
+},
+{
+"romaji": "Otakaze",
+"kanji": "客風",
+"english": "Off wind tiles",
+"explanation": "Non-bonus wind tiles. For example, if seated South in the East round, then Otakaze are West and North tiles."
+},
+{
+"romaji": "Oya",
+"kanji": "親",
+"english": "Dealer",
+"explanation": "The dealer position, seated east"
+},
+{
+"romaji": "Pai",
+"kanji": "牌",
+"english": "Draw",
+"explanation": "Generic term for a tile draw, usually attached to specific tile draws like \"rinshanpai\" or \"haiteihai\"."
+},
+{
+"romaji": "Pao",
+"kanji": "包",
+"english": "",
+"explanation": "A property of certain yakuman that causes one person to be responsible for the whole payment if they discarded the tile that made it a yakuman."
+},
+{
+"romaji": "Pei",
+"kanji": "北",
+"english": "North",
+"explanation": "North wind tile."
+},
+{
+"romaji": "Penchan",
+"kanji": "辺張",
+"english": "End wait",
+"explanation": "A wait consisting of 12 waiting on 3, or 89 waiting on 7."
+},
+{
+"romaji": "Pinzu",
+"kanji": "筒子",
+"english": "Dots, Circles",
+"explanation": "The suit consisting of dot patterns."
+},
+{
+"romaji": "Pon",
+"kanji": "ポン",
+"english": "Open triplet",
+"explanation": "A tile call used to make a minkou from an opponent’s discard."
+},
+{
+"romaji": "Renchan",
+"kanji": "連荘",
+"english": "",
+"explanation": "A continuation of dealer position because the dealer either won or was tenpai at the end of the round."
+},
+{
+"romaji": "Riipai",
+"kanji": "理牌",
+"english": "Sorting",
+"explanation": "Arranging the tiles in your hand."
+},
+{
+"romaji": "Rinshanpai",
+"kanji": "嶺上牌",
+"english": "Dead wall draw",
+"explanation": "The tile drawn after making a Kan."
+},
+{
+"romaji": "Ron",
+"kanji": "栄 or ロン",
+"english": "Deal in",
+"explanation": "A win using an opponent’s discard."
+},
+{
+"romaji": "Routouhai",
+"kanji": "老頭牌",
+"english": "Terminals",
+"explanation": "The tiles numbered 1 and 9."
+},
+{
+"romaji": "Ryanhan shibari",
+"kanji": "二飜縛り",
+"english": "2-han minimum",
+"explanation": "A minimum limit of 2-han is applied to winning hands.  Usually, this is applied when the honba count reaches 5."
+},
+{
+"romaji": "Ryankan",
+"kanji": "両嵌",
+"english": "",
+"explanation": "Two kanchan shaped taatsu merged together, e.g. 357 which can be completed by either 4 or 6."
+},
+{
+"romaji": "Ryanmen",
+"kanji": "両面",
+"english": "Open wait",
+"explanation": "A two-sided wait, like 56 waiting on 4 or 7."
+},
+{
+"romaji": "Ryuukyoku",
+"kanji": "流局",
+"english": "Drawn hand",
+"explanation": "The end of the hand, where every tile not in players' hands and the dead wall has been drawn and discarded; and no winning hand was determined."
+},
+{
+"romaji": "Saikoro",
+"kanji": "骰子",
+"english": "Dice",
+"explanation": "The dice, used to determine dealer position and wall breaks."
+},
+{
+"romaji": "Sakigiri",
+"kanji": "先切り",
+"english": "",
+"explanation": "The act of discarding potentially dangerous tiles, before they actually become dangerous."
+},
+{
+"romaji": "Sakizuke",
+"kanji": "先付け",
+"english": "",
+"explanation": "Same as atozuke. Some people think that sakizuke is the opposite of atozuke, but that is incorrect."
+},
+{
+"romaji": "Sanbaiman",
+"kanji": "三倍満",
+"english": "",
+"explanation": "A hand worth 11 or 12 han."
+},
+{
+"romaji": "Sangenpai",
+"kanji": "三元牌",
+"english": "Dragons",
+"explanation": "The dragon tiles: Haku, Hatsu, and Chun."
+},
+{
+"romaji": "Sanma",
+"kanji": "三麻",
+"english": "Three player, 3P",
+"explanation": "The game played with three players."
+},
+{
+"romaji": "Sashikomi",
+"kanji": "差し込み",
+"english": "",
+"explanation": "Intentionally dealing into an opponent’s hand."
+},
+{
+"romaji": "Senten",
+"kanji": "センテン",
+"english": "",
+"explanation": "A 1,000 point hand."
+},
+{
+"romaji": "Shaa/Xia",
+"kanji": "西",
+"english": "West",
+"explanation": "The west tile."
+},
+{
+"romaji": "Shabo",
+"kanji": "シャボ",
+"english": "Dual pair",
+"explanation": "Abbreviation of shanpon."
+},
+{
+"romaji": "Shanten",
+"kanji": "向聴",
+"english": "",
+"explanation": "Number of tiles needed to reach tenpai."
+},
+{
+"romaji": "Shanpon",
+"kanji": "双ポン",
+"english": "Dual pairs",
+"explanation": "A wait consisting of two pairs, one of which must be upgraded to a koutsu."
+},
+{
+"romaji": "Shibori",
+"kanji": "絞り",
+"english": "",
+"explanation": "Holding on to tiles that an opponent would otherwise be likely to pon or chi."
+},
+{
+"romaji": "Shimocha",
+"kanji": "下家",
+"english": "Right player",
+"explanation": "The player to the right."
+},
+{
+"romaji": "Shoku",
+"kanji": "色",
+"english": "Color",
+"explanation": "Suit.  Literally means \"color\"."
+},
+{
+"romaji": "Shonpai",
+"kanji": "生牌",
+"english": "Live tile",
+"explanation": "A tile that has not yet been discarded this round."
+},
+{
+"romaji": "Shuntsu",
+"kanji": "順子",
+"english": "Sequence",
+"explanation": "This is the generic term for, three consecutive tiles of the same suit, whether open or closed. Chii is used to call a tile to complete a shuntsu and set it aside as a minjun (open). A concealed (closed) shuntsu is an anjun."
+},
+{
+"romaji": "Shuupai",
+"kanji": "数牌",
+"english": "Number tiles",
+"explanation": "The number tiles. Also \"suupai\"."
+},
+{
+"romaji": "Somete",
+"kanji": "染め手",
+"english": "Flushing hand",
+"explanation": "A common saying of flushing hand, usually Honitsu (Half Flush) and Chinitsu (Full Flush). Literally means \"dyeing hand\"."
+},
+{
+"romaji": "Souzu",
+"kanji": "索子",
+"english": "Bamboo tiles",
+"explanation": "The suit consisting of patterns of bamboo sticks."
+},
+{
+"romaji": "Suji",
+"kanji": "筋",
+"english": "Tile interval",
+"explanation": "The tiles that complete ryanmen (open waits).  Means \"muscle\"."
+},
+{
+"romaji": "Suupai",
+"kanji": "数牌",
+"english": "Number tiles",
+"explanation": "The number tiles. Also \"shuupai\"."
+},
+{
+"romaji": "Suteru",
+"kanji": "捨てる",
+"english": "To discard",
+"explanation": "To discard a tile."
+},
+{
+"romaji": "Taatsu",
+"kanji": "塔子",
+"english": "Protogroup",
+"explanation": "Any tile pair that can be turned into a tile group, or shuntsu, with one more tile. For example, 46 can be completed with a 5."
+},
+{
+"romaji": "Takame",
+"kanji": "高目",
+"english": "",
+"explanation": "The specific tile with a multiple tile wait, during tenpai, that would produce the most points.  Opposite of \"yasume\"."
+},
+{
+"romaji": "Tanyaohai",
+"kanji": "断幺牌",
+"english": "Simples",
+"explanation": "The tiles numbered 2 through 8. Also \"chunchan\"."
+},
+{
+"romaji": "Tanki",
+"kanji": "単騎",
+"english": "Pair wait",
+"explanation": "A wait on a single tile to complete the pair."
+},
+{
+"romaji": "Tedashi",
+"kanji": "手出し",
+"english": "",
+"explanation": "To discard a tile originally from hand. Opposite of \"tsumogiri\"."
+},
+{
+"romaji": "Tenbou",
+"kanji": "点棒",
+"english": "Point sticks",
+"explanation": "Point sticks used for manual scoring."
+},
+{
+"romaji": "Tenpai",
+"kanji": "聴牌",
+"english": "Ready",
+"explanation": "A hand that needs only one tile to win."
+},
+{
+"romaji": "Tenpane",
+"kanji": "テンパネ",
+"english": "",
+"explanation": "The advantage of rounding up to the higher 10 fu mark, when just crossing the previous 10 fu.  Example: Being 2 fu above 30 fu, allowing an above rounding of 40 fu."
+},
+{
+"romaji": "Tobi",
+"kanji": "トビ",
+"english": "Bankrupt, Negative",
+"explanation": "The condition by which players points fall below zero (go into negative)."
+},
+{
+"romaji": "Tochuu ryuukyoku",
+"kanji": "途中流局",
+"english": "Abortive draw",
+"explanation": "Specific conditions that immediately ends a hand session."
+},
+{
+"romaji": "Toitsu",
+"kanji": "対子",
+"english": "Pair",
+"explanation": "A pair of identical tiles."
+},
+{
+"romaji": "Toimen",
+"kanji": "対面",
+"english": "Across",
+"explanation": "The player sitting directly across from you."
+},
+{
+"romaji": "Ton",
+"kanji": "東",
+"english": "East",
+"explanation": "East wind tile."
+},
+{
+"romaji": "Tonpuusen",
+"kanji": "東風戦",
+"english": "East only round",
+"explanation": "A game consisting of an East only round."
+},
+{
+"romaji": "Tsumo",
+"kanji": "自摸",
+"english": "Self-draw",
+"explanation": "A self-drawn tile.  Also short for Menzenchin tsumohou, or winning by self-draw."
+},
+{
+"romaji": "Tsumogiri",
+"kanji": "ツモ切り",
+"english": "",
+"explanation": "Discarding the tile that was just drawn. Opposite of \"tedashi\"."
+},
+{
+"romaji": "Ukeire",
+"kanji": "受け入れ",
+"english": "",
+"explanation": "The tile count for a hand in order to reduce shanten."
+},
+{
+"romaji": "Uma",
+"kanji": "ウマ",
+"english": "+/-",
+"explanation": "An additional end game score, calculated based on the ante, plus-minus adjustment, and game rank."
+},
+{
+"romaji": "Uradora",
+"kanji": "裏ドラ",
+"english": "Underneath dora",
+"explanation": "Additional dora located underneath previously revealed dora indicators, which can be earned by winning with riichi."
+},
+{
+"romaji": "Urasuji",
+"kanji": "裏",
+"english": "Back vein",
+"explanation": "The discarded tile that lies just outside of a dangerous wait, one count higher (or lower) and represent a kanchan wait being upgraded to a ryanmen one"
+},
+{
+"romaji": "Wanpai",
+"kanji": "王牌",
+"english": "Dead wall",
+"explanation": "The \"dead\" section of wall that can’t be used except for Dora indicators and Kan draws."
+},
+{
+"romaji": "Wareme",
+"kanji": "割れ目",
+"english": "",
+"explanation": "A rule that doubles any payment involving the player whose wall was broken at the start of the hand."
+},
+{
+"romaji": "Yakitori",
+"kanji": "焼き鳥",
+"english": "Winless game",
+"explanation": "A game, by which a player did not win at least one hand during a game ."
+},
+{
+"romaji": "Yaku",
+"kanji": "役",
+"english": "Hand pattern",
+"explanation": "A required scoring pattern or condition in the hand that awards han, such as Tanyao or Toitoi."
+},
+{
+"romaji": "Yakuman",
+"kanji": "役満",
+"english": "Limit hand",
+"explanation": "A hand worth 13 han or more, or a specific pattern among the yakuman classed hand patterns.  Maximum points for a pattern is awarded without aotenjou applied."
+},
+{
+"romaji": "Yama",
+"kanji": "山",
+"english": "",
+"explanation": "The tile walls, literally means \"mountains\"."
+},
+{
+"romaji": "Yamagoshi",
+"kanji": "山越し",
+"english": "",
+"explanation": "A tactic of declining a winning tile, until after one's subsequent turn."
+},
+{
+"romaji": "Yamiten",
+"kanji": "闇聴",
+"english": "",
+"explanation": "Another word for \"damaten\"."
+},
+{
+"romaji": "Yaochuuhai",
+"kanji": "幺九牌",
+"english": "",
+"explanation": "All tiles numbered 1 and 9 (routouhai) plus characters (jihai)."
+},
+{
+"romaji": "Yasude",
+"kanji": "安手",
+"english": "Cheap hand",
+"explanation": "A low scoring hand."
+},
+{
+"romaji": "Yasume",
+"kanji": "安目",
+"english": "",
+"explanation": "The specific tile(s) in a multiple wait that would produce the least points. Opposite of \"takame\"."
+},
+{
+"romaji": "Zentsuppa",
+"kanji": "全ツッパ",
+"english": "All out",
+"explanation": "A strategy that attempts to win a hand at all costs while ignoring the possibility of dealing into an opponent’s hand."
+},
+{
+"romaji": "Iiman",
+"kanji": "一萬",
+"english": "One of numbers",
+"explanation": "The one of numbers tile."
+},
+{
+"romaji": "Ryanman",
+"kanji": "二萬",
+"english": "Two of numbers",
+"explanation": "The two of numbers tile."
+},
+{
+"romaji": "Sanman",
+"kanji": "三萬",
+"english": "Three of numbers",
+"explanation": "The three of numbers tile."
+},
+{
+"romaji": "Suuman",
+"kanji": "四萬",
+"english": "Four of numbers",
+"explanation": "The four of numbers tile."
+},
+{
+"romaji": "Uuman",
+"kanji": "五萬",
+"english": "Five of numbers",
+"explanation": "The five of numbers tile."
+},
+{
+"romaji": "Rouman",
+"kanji": "六萬",
+"english": "Six of numbers",
+"explanation": "The six of numbers tile."
+},
+{
+"romaji": "Chiiman",
+"kanji": "七萬",
+"english": "Seven of numbers",
+"explanation": "The seven of numbers tile."
+},
+{
+"romaji": "Paaman",
+"kanji": "八萬",
+"english": "Eight of numbers",
+"explanation": "The eight of numbers tile."
+},
+{
+"romaji": "Kyuuman",
+"kanji": "九萬",
+"english": "Nine of numbers",
+"explanation": "The nine of numbers tile."
+},
+{
+"romaji": "Iipin",
+"kanji": "一筒",
+"english": "One of circles",
+"explanation": "The one of circles tile."
+},
+{
+"romaji": "Ryanpin",
+"kanji": "二筒",
+"english": "Two of circles",
+"explanation": "The two of circles tile."
+},
+{
+"romaji": "Sanpin",
+"kanji": "三筒",
+"english": "Three of circles",
+"explanation": "The three of circles tile."
+},
+{
+"romaji": "Suupin",
+"kanji": "四筒",
+"english": "Four of circles",
+"explanation": "The four of circles tile."
+},
+{
+"romaji": "Uupin",
+"kanji": "五筒",
+"english": "Five of circles",
+"explanation": "The five of circles tile."
+},
+{
+"romaji": "Roupin",
+"kanji": "六筒",
+"english": "Six of circles",
+"explanation": "The six of circles tile."
+},
+{
+"romaji": "Chiipin",
+"kanji": "七筒",
+"english": "Seven of circles",
+"explanation": "The seven of circles tile."
+},
+{
+"romaji": "Paapin",
+"kanji": "八筒",
+"english": "Eight of circles",
+"explanation": "The eight of circles tile."
+},
+{
+"romaji": "Kyuupin",
+"kanji": "九筒",
+"english": "Nine of circles",
+"explanation": "The nine of circles tile."
+},
+{
+"romaji": "Iisou",
+"kanji": "一索",
+"english": "One of bamboos",
+"explanation": "The one of bamboos tile."
+},
+{
+"romaji": "Ryansou",
+"kanji": "二索",
+"english": "Two of bamboos",
+"explanation": "The two of bamboos tile."
+},
+{
+"romaji": "Sansou",
+"kanji": "三索",
+"english": "Three of bamboos",
+"explanation": "The three of bamboos tile."
+},
+{
+"romaji": "Suusou",
+"kanji": "四索",
+"english": "Four of bamboos",
+"explanation": "The four of bamboos tile."
+},
+{
+"romaji": "Uusou",
+"kanji": "五索",
+"english": "Five of bamboos",
+"explanation": "The five of bamboos tile."
+},
+{
+"romaji": "Rousou",
+"kanji": "六索",
+"english": "Six of bamboos",
+"explanation": "The six of bamboos tile."
+},
+{
+"romaji": "Chiisou",
+"kanji": "七索",
+"english": "Seven of bamboos",
+"explanation": "The seven of bamboos tile."
+},
+{
+"romaji": "Paasou",
+"kanji": "八索",
+"english": "Eight of bamboos",
+"explanation": "The eight of bamboos tile."
+},
+{
+"romaji": "Kyuusou",
+"kanji": "九索",
+"english": "Nine of bamboos",
+"explanation": "The nine of bamboos tile."
+},
+{
+"romaji": "Haku",
+"kanji": "白",
+"english": "White dragon",
+"explanation": "The white dragon tile."
+},
+{
+"romaji": "Hatsu",
+"kanji": "發",
+"english": "Green dragon",
+"explanation": "The green dragon tile."
+},
+{
+"romaji": "Chun",
+"kanji": "中",
+"english": "Red dragon",
+"explanation": "The red dragon tile."
+},
+{
+"romaji": "Riichi",
+"kanji": "立直",
+"english": "",
+"explanation": "A yaku where one declares their hand ready at the cost of being unable to change it. Worth 1 han, closed only."
+},
+{
+"romaji": "Ippatsu",
+"kanji": "一発",
+"english": "",
+"explanation": "A yaku where a player wins within one uninterrupted go-around after declaring riichi. Worth 1 han, closed only."
+},
+{
+"romaji": "Double riichi",
+"kanji": "ダブル立直",
+"english": "",
+"explanation": "A yaku where the player declares riichi after the first draw of their turn. Worth 2 han, closed only."
+},
+{
+"romaji": "Menzenchin tsumohou",
+"kanji": "門前清自摸和",
+"english": "Fully concealed hand",
+"explanation": "A yaku where all tiles, including the final one, are drawn from the wall. Worth 1 han, closed only."
+},
+{
+"romaji": "Tanyao",
+"kanji": "断么九",
+"english": "All simples",
+"explanation": "A yaku where the hand consists only of simple tiles. Worth 1 han."
+},
+{
+"romaji": "Pinfu",
+"kanji": "平和",
+"english": "No-point hand",
+"explanation": "A yaku where the hand has no extra fu points. Worth 1 han, closed only."
+},
+{
+"romaji": "Iipeikou",
+"kanji": "一盃口",
+"english": "Pure double sequence",
+"explanation": "A yaku where the hand contains two identical sequences. Worth 1 han, closed only."
+},
+{
+"romaji": "Ikkitsuukan",
+"kanji": "Ikkitsuukan",
+"english": "Straight",
+"explanation": "A yaku where the hand contains the sequences 123, 456, and 789 from one suit. Worth 2 han, or 1 han when open."
+},
+{
+"romaji": "Yakuhai",
+"kanji": "役牌",
+"english": "Value triplet",
+"explanation": "A yaku where the hand contains a triplet of a dragon, seat wind, or round wind. Worth 1 han."
+},
+{
+"romaji": "Sanshoku doujun",
+"kanji": "三色同順",
+"english": "Triple sequences",
+"explanation": "A yaku where the hand contains the same numbered sequences across all three numbered tiles. Worth 2 han, or 1 han when open."
+},
+{
+"romaji": "Sanshoku doukou",
+"kanji": "三色同刻",
+"english": "Triple triples",
+"explanation": "A yaku where the hand contains the same numbered triplet across all three numbered tiles. Worth 2 han."
+},
+{
+"romaji": "Toitoihou",
+"kanji": "対々和",
+"english": "All triplets",
+"explanation": "A yaku where the open hand consists of four triplets and a pair. Worth 2 han."
+},
+{
+"romaji": "Sanankou",
+"kanji": "三暗刻",
+"english": "Three concealed triplets",
+"explanation": "A yaku where the hand contains three concealed triplets. Worth 2 han."
+},
+{
+"romaji": "Sankantsu",
+"kanji": "三槓子",
+"english": "Three kans",
+"explanation": "A yaku where the hand contains three kans. Worth 2 han."
+},
+{
+"romaji": "Honchantaiyaochuu",
+"kanji": "混全帯么九",
+"english": "Half outside hand",
+"explanation": "A yaku where each pair and group contains at least one terminal or honor tile."
+},
+{
+"romaji": "Junchantaiyaochuu",
+"kanji": "純全帯么九",
+"english": "Outside hand",
+"explanation": "A yaku where each pair and group contains at least one terminal."
+},
+{
+"romaji": "Ryanpeikou",
+"kanji": "二盃口",
+"english": "Twice pure double sequence",
+"explanation": "A yaku where the hand contains two iipeikou. Worth 3 han, closed only."
+},
+{
+"romaji": "Shousangen",
+"kanji": "小三元",
+"english": "Little Three Dragons",
+"explanation": "A yaku where the hand contains two triplets and a pair of dragons. Worth 2 han."
+},
+{
+"romaji": "Honroutou",
+"kanji": "混老頭",
+"english": "All terminals and honors",
+"explanation": "A yaku where the hand contains four triplets and a pair that consist of terminal and honor tiles. Worth 2 han."
+},
+{
+"romaji": "Honiisou",
+"kanji": "混一色",
+"english": "Half flush",
+"explanation": "A yaku where the hand contains only honor tiles and tiles from a single suit. Worth 3 han, or 2 han when open."
+},
+{
+"romaji": "Chiniisou",
+"kanji": "清一色",
+"english": "Full flush",
+"explanation": "A yaku where the hand contains only tiles from a single suit. Worth 6 han, or 5 han when open."
+},
+{
+"romaji": "Chiitoitsu",
+"kanji": "七対子",
+"english": "Seven pairs",
+"explanation": "A yaku where the hand consists of seven pairs. Worth 2 han, closed only."
+},
+{
+"romaji": "Rinshan kaihou",
+"kanji": "嶺上開花",
+"english": "After a kan",
+"explanation": "A yaku where the winning tile is drawn from the dead wall. Worth 1 han."
+},
+{
+"romaji": "Haitei raoyue",
+"kanji": "海底撈月",
+"english": "Under the sea",
+"explanation": "A yaku where the winning tile is the last tile to be drawn in the round. Worth 1 han."
+},
+{
+"romaji": "Houtei raoyui ",
+"kanji": "河底撈魚",
+"english": "Under the river",
+"explanation": "A yaku where the winning tile is the last tile to be discarded in the round. Worth 1 han."
+},
+{
+"romaji": "Chankan",
+"kanji": "搶槓",
+"english": "Robbing a kan",
+"explanation": "A yaku where the winning tile is robbed from an added kan. Worth 1 han."
+},
+{
+"romaji": "Kokushi musou",
+"kanji": "国士無双",
+"english": "Thirteen orphans",
+"explanation": "A yakuman where the contains one of each honor and terminal tile, plus one duplicate. Closed only."
+},
+{
+"romaji": "Kokushi musou juusan menmachi",
+"kanji": "国士無双十三面待ち",
+"english": "Thirteen orphans, thirteen-sided wait",
+"explanation": "A variant of kokushi musou where the hand had a thirteen-sided wait. Worth a double yakuman. Closed only."
+},
+{
+"romaji": "Daisangen",
+"kanji": "大三元",
+"english": "Big three dragons",
+"explanation": "A yakuman where the hand contains three triplets of dragons."
+},
+{
+"romaji": "Suuankou",
+"kanji": "四暗刻",
+"english": "Four concealed triplets",
+"explanation": "A yakuman where the hand contains four concealed triplets. Closed only."
+},
+{
+"romaji": "Suuankou tanki",
+"kanji": "四暗刻単騎",
+"english": "Four concealed triplets, pair wait",
+"explanation": "A variant of suuankou where the hand had a pair wait. Worth a double yakuman. Closed only."
+},
+{
+"romaji": "Shousuushii",
+"kanji": "小四喜",
+"english": "Little four winds",
+"explanation": "A yakuman where the hand contains three triplets and a pair of winds."
+},
+{
+"romaji": "Daisuushii",
+"kanji": "大四喜",
+"english": "Big four winds",
+"explanation": "A yakuman where the hand contains four triplets of winds. Worth a double yakuman."
+},
+{
+"romaji": "Tsuuiisou",
+"kanji": "字一色",
+"english": "All honors",
+"explanation": "A yakuman where the hand consists solely of honor tiles."
+},
+{
+"romaji": "Ryuuiisou",
+"kanji": "緑一色",
+"english": "All green",
+"explanation": "A yakuman where the hand consists solely of 2, 3, 4, 6, 8 of bamboos and/or green dragon."
+},
+{
+"romaji": "Chinroutou",
+"kanji": "清老頭",
+"english": "All terminals",
+"explanation": "A yakuman where the hand consists solely of terminal tiles."
+},
+{
+"romaji": "Chuuren poutou",
+"kanji": "九連宝燈",
+"english": "Nine gates",
+"explanation": "A yakuman where the hand contains the pattern 1-1-1-2-3-4-5-6-7-8-9-9-9 in a single suit plus one more tile in that suit. Closed only."
+},
+{
+"romaji": "Junsei chuuren poutou",
+"kanji": "純正九蓮宝燈",
+"english": "Nine gates, nine-sided wait",
+"explanation": "A variant of chuuren poutou where the hand had a nine-sided wait. Worth a double yakuman. Closed only."
+},
+{
+"romaji": "Suukantsu",
+"kanji": "四槓子",
+"english": "Four kans",
+"explanation": "A yakuman where the hand contains four kans."
+},
+{
+"romaji": "Tenhou",
+"kanji": "天和",
+"english": "Blessing of heaven",
+"explanation": "A yakuman where the dealer wins with their initial hand."
+},
+{
+"romaji": "Chiihou",
+"kanji": "地和",
+"english": "Blessing of Earth",
+"explanation": "A yakuman where a player wins on their first draw."
+},
+{
+"romaji": "Renhou",
+"kanji": "人和",
+"english": "Blessing of human",
+"explanation": "A yaku where the player wins on a discard before they draw a tile. Worth 5 han. Closed only."
+},
+{
+"romaji": "Sanrenkou",
+"kanji": "三連刻",
+"english": "Three consecutive triplets",
+"explanation": "A yaku where the hand contains three consecutive triplets in the same suit. Worth 2 han."
+},
+{
+"romaji": "Iishoku sanjun",
+"kanji": "一色三順",
+"english": "Three identical sequences",
+"explanation": "A yaku where the hand contains three identical sequences. Worth 2 han."
+},
+{
+"romaji": "Shiisan puutaa",
+"kanji": "十三不塔",
+"english": "Thirteen non-matching tiles",
+"explanation": "A yaku where the initial consists of thirteen tiles that do not form any protogroup, except for a single pair. Worth 5 han. Closed only."
+},
+{
+"romaji": "Shousharin",
+"kanji": "小車輪",
+"english": "Seven pairs in one suit",
+"explanation": "A yaku where the hand consists of seven pairs in one suit with at least one pair of terminals. Worth 2 han. Closed only."
+},
+{
+"romaji": "Kinkei dokuritsu",
+"kanji": "金鶏独立",
+"english": "Lone golden rooster",
+"explanation": "A yaku where the player has four open groups and wins with a single wait on 1 of bamboos. Worth 5 han, regardless of other yaku."
+},
+{
+"romaji": "Nagashi mangan",
+"kanji": "流し満貫",
+"english": "Mangan at draw",
+"explanation": "A yaku where the round has drawn, and the player only discarded honor and terminal tiles and no one claimed them. Worth 5 han."
+},
+{
+"romaji": "Open riichi",
+"kanji": "オープン立直",
+"english": "",
+"explanation": "A variant of riichi where the player shows their hand to other players. Worth 2 han, or a yakuman if a player who hasn't declared riichi themself deals in; closed only."
+},
+{
+"romaji": "Otakaze sankou",
+"kanji": "客風三刻",
+"english": "Three valueless winds",
+"explanation": "A yaku where the player has three triplets of winds that are not the seat wind or the round wind. Worth 3 han, or 2 han when open."
+},
+{
+"romaji": "Uumensai",
+"kanji": "五門斉",
+"english": "Five-suit hand",
+"explanation": "A yaku where the hand has a group of dragons, winds, bamboos, numbers, and circles. Worth 2 han."
+},
+{
+"romaji": "Kinmonkyou",
+"kanji": "金門橋",
+"english": "Golden Gate Bridge",
+"explanation": "A yaku where the hand contains the sequences 123, 345, 567, 789 in one suit. Worth 3 han, or 2 han if open."
+},
+{
+"romaji": "Tsumabe gaeshi",
+"kanji": "燕返し",
+"english": "Win on riichi discard",
+"explanation": "A yaku where the player wins on a tile discarded after another player's riichi declaration. Worth 1 han."
+},
+{
+"romaji": "Suurenkou",
+"kanji": "四連刻",
+"english": "Four consecutive triplets",
+"explanation": "A yakuman where the hand contains four consecutive triplets."
+},
+{
+"romaji": "Iishoku yonjun",
+"kanji": "一色四順",
+"english": "Four identical sequences",
+"explanation": "A yakuman where the hand contains four identical sequences."
+},
+{
+"romaji": "Shiisuu puutaa",
+"kanji": "十四不塔",
+"english": "Fourteen non-matching tiles",
+"explanation": "A yakuman where the initial consists of thirteen tiles that do not form any protogroup, except for a single pair. Closed only."
+},
+{
+"romaji": "Daichiisei",
+"kanji": "大七星",
+"english": "Seven distinct honor pairs",
+"explanation": "A yakuman where the hand consists of seven distinct honor pairs. Closed only."
+},
+{
+"romaji": "Daisharin",
+"kanji": "大車輪",
+"english": "Seven simple pairs in one suit",
+"explanation": "A yakuman where the hand consists of seven pairs in one suit without any terminals. Closed only."
+},
+{
+"romaji": "Beni kujaku",
+"kanji": "紅孔雀",
+"english": "Red peacock",
+"explanation": "A yakuman where the hand consists only of 1, 5, 7, 9 of bamboos and/or red dragon."
+},
+{
+"romaji": "Paarenchan",
+"kanji": "八連荘",
+"english": "Ninth dealer win in a row",
+"explanation": "A yakuman where the dealer wins with at least eight honba on the table."
+},
+{
+"romaji": "Go zoku kyouwa",
+"kanji": "五族協和",
+"english": "Five races, one union",
+"explanation": "A yakuman where the hand contains four triplets of bamboos, numbers, circles, dragons, and a pair of seat wind. Closed only."
+},
+{
+"romaji": "Daikinmonkyou",
+"kanji": "大金門橋",
+"english": "Big Golden Gate Bridge",
+"explanation": "A yakuman where the hand contains the sequences 123, 345, 567, 789 in one suit, plus a pair in the same suit."
+},
+{
+"romaji": "Hyakuman goku",
+"kanji": "百萬石",
+"english": "One million stones",
+"explanation": "A yakuman where the hand consists of only number tiles and the sum of all of their numeric values is at least 100."
+},
+{
+"romaji": "Ao no doumon",
+"kanji": "青の洞門",
+"english": "The Blue Tunnel",
+"explanation": "A yakuman where the hand consists only of 2, 4, 8 of circles and wind tiles. Closed only."
+},
+{
+"romaji": "Kaachou fuugetsu",
+"kanji": "花鳥風月",
+"english": "Beauties of nature",
+"explanation": "A yakuman where the hand contains triplets of 5 of circles, 1 of circles, seat wind, and 1 of bamboos."
+},
+{
+"romaji": "Fuuka setsugetsu",
+"kanji": "風花雪月",
+"english": "The four seasons",
+"explanation": "A yakuman where the hand contains triplets of 5 of circles, 1 of circles, seat wind, and white dragon."
+}]

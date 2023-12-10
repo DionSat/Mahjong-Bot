@@ -11,3 +11,8 @@ The notifier allows you to select a specific channel and video title and look fo
 ```/Explain```
 
 The explain command will query a glossary JSON file for a specific reiichi term/word or phrase and return back an explanation with its english name, the romanji, description, and kanji.
+
+## Planned Functionality
+```/efficiency```
+
+Calculate the efficiency of a hand.

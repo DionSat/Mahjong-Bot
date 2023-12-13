@@ -3,24 +3,35 @@ module.exports = async (interaction, hand) => {
 }
 
 function parseHand(hand) {
-    tiles = []
+    tiles = {}
+    tileNumbers = []
     let j = 0
     for(let i = 0; i < hand.length; i++) {
-        if(hand[i] === 'g') {
-            tiles[j] = 30 + hand[i - 1]
-            j++
+        tileNumbers.push(hand[i])
+        if(hand[i] === 'r') {
+            tiles['red'] = tileNumbers
+            tileNumbers = []
         }
         if(hand[i] === 'm') {
-            tiles[j] = 10 + hand[i - 1]
-            j++
+            tiles['man'] = tileNumbers
+            tileNumbers = []
         }
         if(hand[i] === 'p') {
-            tiles[j] = 20 + hand[i - 1]
-            j++
+            tiles['pin'] = tileNumbers
+            tileNumbers = []
         }
         if(hand[i] === 's') {
-            tiles[j] = 30 + hand[i - 1]
-            j++
+            tiles['sou'] = tileNumbers
+            tileNumbers = []
+        }        
+        if(hand[i] === 'h') {
+            if(tileNumbers.includes('8') || tileNumbers.includes('9')) {
+                
+            }
+            else {
+                tiles['honor'] = tileNumbers
+                tileNumbers = []
+            }
         }
     }
 }

@@ -16,3 +16,7 @@ The explain command will query a glossary JSON file for a specific reiichi term/
 ```/efficiency```
 
 Calculate the efficiency of a hand.
+
+```/stategy```
+
+Give of list of stategies or tips. (Still debating how it will actually function but this concept is something I've been wanting to implment.)

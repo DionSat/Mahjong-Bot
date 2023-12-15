@@ -1,5 +1,6 @@
 module.exports = async (interaction, hand) => {
-    
+    //There need to be 4 sequences/triplets and a double for there to be a basic yaku
+    tiles = parseHand(hand);
 }
 
 async function parseHand(hand) {

@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder, Options } = require('discord.js')
-const glossary = require('../data/reiichi-glossary.json');
+const calculator = require('../functions/efficiency.js');
 
 module.exports = {
         data: new SlashCommandBuilder()
@@ -10,8 +10,6 @@ module.exports = {
                 .setName('hand')
                 .setDescription('Hand to check efficiency')
                 .setRequired(true)
-                .setMaxLength(26)
-                .setMinLength(26)
         ),
 
         async execute(interaction) {
@@ -19,8 +17,8 @@ module.exports = {
 
             const hand = options.getString('hand').toLowerCase();
 
-            console.log(hand)
+            await interaction.deferReply({ ephemeral: true });
 
-            // await interaction.deferReply({ ephemeral: true });
+            await calculator(interaction, hand);
         }
 }

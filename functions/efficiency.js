@@ -2,8 +2,7 @@ module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
     tiles = await parseHand(hand, interaction);
     console.log(tiles);
-    sets = 0;
-    pairs = 0;
+    blocks = [];
     for(let k in tiles) {
         let num = tiles[k];
         let i = 0;
@@ -11,17 +10,17 @@ module.exports = async (interaction, hand) => {
             console.log(num[i]);
             // if its a triple sequence
             if(num[i] + 1 === num[i + 1] && num[i] + 2 === num[i + 2]) {
-                sets += 1;
+                blocks.push([num[i], num[i + 1], num[i + 2]]);
                 i += 3;
             }
             // if its a triple
             else if(num[i] === num[i + 1] && num[i] === num[i + 2]) {
-                sets += 1;
+                blocks.push([num[i], num[i + 1], num[i + 2]]);
                 i += 3;
             }
             // if its a pair
             else if(num[i] === num[i + 1] && num[i] !== num[i + 2]) {
-                pairs += 1;
+                blocks.push([num[i], num[i + 1]]);
                 i += 2;
             }
             else {
@@ -29,8 +28,7 @@ module.exports = async (interaction, hand) => {
             }
         } 
     }
-    console.log("Pairs: ", pairs);
-    console.log("Sets: ", sets);
+    console.log("Blocks: ", blocks);
 }
 
 async function parseHand(hand, interaction) {

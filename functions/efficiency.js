@@ -1,13 +1,17 @@
+function isNumeric(str) {
+    if (typeof str != "string") return false // we only process strings!  
+    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+           !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
 module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
     tiles = await parseHand(hand, interaction);
-    console.log(tiles);
     blocks = [];
     for(let k in tiles) {
         let num = tiles[k];
         let i = 0;
         while(i < num.length) {
-            console.log(num[i]);
             // if its a triple sequence
             if(num[i] + 1 === num[i + 1] && num[i] + 2 === num[i + 2]) {
                 blocks.push([num[i], num[i + 1], num[i + 2]]);
@@ -23,7 +27,18 @@ module.exports = async (interaction, hand) => {
                 blocks.push([num[i], num[i + 1]]);
                 i += 2;
             }
+            // if its a partial 2 wait sequence
+            else if(num[i] + 1 === num[i + 1] && num[i + 1] + 1 !== num[i + 2]) {
+                blocks.push([num[i], num[i + 1]]);
+                i += 2;
+            }
+            // if its a partial 1 wait sequence
+            else if(num[i] + 2 === num[i + 1]) {
+                blocks.push([num[i], num[i + 1]]);
+                i += 2;
+            }
             else {
+                blocks.push([num[i]]);
                 i += 1;
             }
         } 
@@ -66,8 +81,12 @@ async function parseHand(hand, interaction) {
                 tileNumbers = [];
             }
         }
+        else if(isNumeric(hand[i])){
+            number = parseInt(hand[i]);
+            tileNumbers.push(number)
+        }
         else {
-            tileNumbers.push(hand[i])
+            await interaction.editReply({ content: `Warning invalid input. has to use the values 1 - 9 and alpha symbols m, p, s, r and h. Being man, pin, sou, red, and honor tiles respectively. Note that honor tile have the range 1 - 7.`, ephemeral: true });
         }
     }
 

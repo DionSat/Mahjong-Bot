@@ -8,6 +8,9 @@ module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
     tiles = await parseHand(hand, interaction);
     blocks = [];
+    let sets = 0;
+    let pairs = 0;
+    let partial = 0;
     for(let k in tiles) {
         let num = tiles[k];
         let i = 0;
@@ -16,34 +19,41 @@ module.exports = async (interaction, hand) => {
             if(num[i] + 1 === num[i + 1] && num[i] + 2 === num[i + 2]) {
                 blocks.push([num[i], num[i + 1], num[i + 2]]);
                 i += 3;
+                sets += 1;
             }
             // if its a triple
             else if(num[i] === num[i + 1] && num[i] === num[i + 2]) {
                 blocks.push([num[i], num[i + 1], num[i + 2]]);
                 i += 3;
+                sets += 1;
             }
             // if its a pair
             else if(num[i] === num[i + 1] && num[i] !== num[i + 2]) {
                 blocks.push([num[i], num[i + 1]]);
                 i += 2;
+                pairs += 1;
             }
             // if its a partial 2 wait sequence
             else if(num[i] + 1 === num[i + 1] && num[i + 1] + 1 !== num[i + 2]) {
                 blocks.push([num[i], num[i + 1]]);
                 i += 2;
+                partial += 1;
             }
             // if its a partial 1 wait sequence
             else if(num[i] + 2 === num[i + 1]) {
                 blocks.push([num[i], num[i + 1]]);
                 i += 2;
+                partial += 1;
             }
             else {
                 blocks.push([num[i]]);
                 i += 1;
             }
-        } 
+        }
     }
     console.log("Blocks: ", blocks);
+    let shantenScore = calculateShanten(sets, pairs, partial);
+    console.log("Shanten: ", shantenScore);
 }
 
 async function parseHand(hand, interaction) {
@@ -91,4 +101,37 @@ async function parseHand(hand, interaction) {
     }
 
     return tiles;
+}
+
+function calculateShanten(sets, pairs, partials) {
+    let blocks = 0;
+    let constant = 8;
+    let diff = 0;
+    if(sets > 0) {
+        if(pairs > 0) {
+            diff += 1;
+        }
+        if(partials > 4) {
+            diff += 4
+        }
+        else if (partials < 5) {
+            diff += partials
+        }
+    }
+    else {
+        if(pairs > 0) {
+            diff += 1;
+        }
+        if(sets < 5) {
+            diff += (2 * sets);
+            if(partials > 0) {
+                diff += (4 - sets);
+            }
+        }
+        else if (sets > 4) {
+            diff += 8;
+        }
+    }
+    let shanten = constant - diff;
+    return shanten;
 }

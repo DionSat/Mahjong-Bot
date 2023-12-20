@@ -14,6 +14,7 @@ module.exports = async (interaction, hand) => {
     for(let k in tiles) {
         let num = tiles[k];
         let i = 0;
+        console.log(tiles[k]);
         while(i < num.length) {
             // if its a triple sequence
             if(num[i] + 1 === num[i + 1] && num[i] + 2 === num[i + 2]) {
@@ -35,15 +36,31 @@ module.exports = async (interaction, hand) => {
             }
             // if its a partial 2 wait sequence
             else if(num[i] + 1 === num[i + 1] && num[i + 1] + 1 !== num[i + 2]) {
-                blocks.push([num[i], num[i + 1]]);
-                i += 2;
-                partial += 1;
+                // if end of partial is part of a pair ignore the partial
+                if(num[i + 1] === num[i + 2]) {
+                    blocks.push([num[i + 1], num[i + 2]]);
+                    i += 3;
+                    pairs += 1;
+                }
+                else {
+                    blocks.push([num[i], num[i + 1]]);
+                    i += 2;
+                    partial += 1;
+                }
             }
             // if its a partial 1 wait sequence
             else if(num[i] + 2 === num[i + 1]) {
-                blocks.push([num[i], num[i + 1]]);
-                i += 2;
-                partial += 1;
+                // if end of partial is part of a pair ignore the partial
+                if(num[i + 1] === num[i + 2]) {
+                    blocks.push([num[i + 1], num[i + 2]]);
+                    i += 3;
+                    pairs += 1;
+                }
+                else {
+                    blocks.push([num[i], num[i + 1]]);
+                    i += 2;
+                    partial += 1;
+                }
             }
             else {
                 blocks.push([num[i]]);
@@ -61,12 +78,7 @@ async function parseHand(hand, interaction) {
     tileNumbers = [];
 
     for(let i = 0; i < hand.length; i++) {
-        if(hand[i] === 'r') {
-            tileNumbers.sort();
-            tiles['red'] = tileNumbers;
-            tileNumbers = [];
-        }
-        else if(hand[i] === 'm') {
+        if(hand[i] === 'm') {
             tileNumbers.sort();
             tiles['man'] = tileNumbers;
             tileNumbers = [];
@@ -105,9 +117,26 @@ async function parseHand(hand, interaction) {
 
 function calculateShanten(sets, pairs, partials) {
     let blocks = 0;
-    let constant = 8;
+    let constant = 9;
     let diff = 0;
     if(sets > 0) {
+        if(pairs > 0) {
+            diff += 1;
+        }
+        if(sets < 5) {
+            diff += (2 * sets);
+            if(partials > (4 - sets)) {
+                diff += (4 - sets);
+            }
+            else {
+                diff += partials;
+            }
+        }
+        else if (sets > 4) {
+            diff += 8;
+        }
+    }
+    else {
         if(pairs > 0) {
             diff += 1;
         }
@@ -116,20 +145,6 @@ function calculateShanten(sets, pairs, partials) {
         }
         else if (partials < 5) {
             diff += partials
-        }
-    }
-    else {
-        if(pairs > 0) {
-            diff += 1;
-        }
-        if(sets < 5) {
-            diff += (2 * sets);
-            if(partials > 0) {
-                diff += (4 - sets);
-            }
-        }
-        else if (sets > 4) {
-            diff += 8;
         }
     }
     let shanten = constant - diff;

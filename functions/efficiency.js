@@ -22,17 +22,17 @@ module.exports = async (interaction, hand) => {
                 i += 3;
                 sets += 1;
             }
-            // if its a triple
-            else if(num[i] === num[i + 1] && num[i] === num[i + 2]) {
-                blocks.push([num[i], num[i + 1], num[i + 2]]);
-                i += 3;
-                sets += 1;
-            }
             // if its a pair
             else if(num[i] === num[i + 1] && num[i] !== num[i + 2]) {
                 blocks.push([num[i], num[i + 1]]);
                 i += 2;
                 pairs += 1;
+            }
+            // if its a triple
+            else if(num[i] === num[i + 1] && num[i] === num[i + 2]) {
+                blocks.push([num[i], num[i + 1], num[i + 2]]);
+                i += 3;
+                sets += 1;
             }
             // if its a partial 2 wait sequence
             else if(num[i] + 1 === num[i + 1] && num[i + 1] + 1 !== num[i + 2]) {
@@ -71,6 +71,31 @@ module.exports = async (interaction, hand) => {
     console.log("Blocks: ", blocks);
     let shantenScore = calculateShanten(sets, pairs, partial);
     console.log("Shanten: ", shantenScore);
+}
+
+async function parseSequence(hand, blocks, sets) {
+    let l = 0
+    let r = 0
+    let seq = {}
+    while (l < hand.length) {
+        if (seq.length === 3) {
+            l += 1
+            blocks.push(seq)
+            sets += 1
+            seq = []
+            seq.push(hand[l])
+        }
+        if(l === r) {
+            seq[l] = hand[l]
+        }
+        if(hand[l] + 1 === hand[r]) {
+            seq[r] = hand[r]
+            seqLen -= 1
+        }
+        else {
+            r += 1
+        }
+    }
 }
 
 async function parseHand(hand, interaction) {

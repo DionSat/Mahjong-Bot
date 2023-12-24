@@ -15,72 +15,29 @@ module.exports = async (interaction, hand) => {
         let num = tiles[k];
         let i = 0;
         console.log(tiles[k]);
-        while(i < num.length) {
-            // if its a triple sequence
-            if(num[i] + 1 === num[i + 1] && num[i] + 2 === num[i + 2]) {
-                blocks.push([num[i], num[i + 1], num[i + 2]]);
-                i += 3;
-                sets += 1;
-            }
-            // if its a pair
-            else if(num[i] === num[i + 1] && num[i] !== num[i + 2]) {
-                blocks.push([num[i], num[i + 1]]);
-                i += 2;
-                pairs += 1;
-            }
-            // if its a triple
-            else if(num[i] === num[i + 1] && num[i] === num[i + 2]) {
-                blocks.push([num[i], num[i + 1], num[i + 2]]);
-                i += 3;
-                sets += 1;
-            }
-            // if its a partial 2 wait sequence
-            else if(num[i] + 1 === num[i + 1] && num[i + 1] + 1 !== num[i + 2]) {
-                // if end of partial is part of a pair ignore the partial
-                if(num[i + 1] === num[i + 2]) {
-                    blocks.push([num[i + 1], num[i + 2]]);
-                    i += 3;
-                    pairs += 1;
-                }
-                else {
-                    blocks.push([num[i], num[i + 1]]);
-                    i += 2;
-                    partial += 1;
-                }
-            }
-            // if its a partial 1 wait sequence
-            else if(num[i] + 2 === num[i + 1]) {
-                // if end of partial is part of a pair ignore the partial
-                if(num[i + 1] === num[i + 2]) {
-                    blocks.push([num[i + 1], num[i + 2]]);
-                    i += 3;
-                    pairs += 1;
-                }
-                else {
-                    blocks.push([num[i], num[i + 1]]);
-                    i += 2;
-                    partial += 1;
-                }
-            }
-            else {
-                blocks.push([num[i]]);
-                i += 1;
-            }
-        }
+        sets = await parseSequence(tiles[k], blocks, sets)
+        sets += await parseTriplet(tiles[k], blocks, sets)
     }
     console.log("Blocks: ", blocks);
     let shantenScore = calculateShanten(sets, pairs, partial);
     console.log("Shanten: ", shantenScore);
 }
 
-async function parseSequence(hand, blocks) {
-    let seq = {}
+async function parseSequence(hand, blocks, sets) {
     for(let i = 0; i < hand.length; i++) {
         let s1 = hand[i];
         let s2 = binarySearch(hand, hand[i] + 1, i, hand.length);
         let s3 = binarySearch(hand, hand[i] + 2, i, hand.length);
-        if(s2 !== -1 && s3)
+        if(s2 !== -1 && s3 !== -1) {
+            let seq = []
+            seq.push(s1)
+            seq.push(s2)
+            seq.push(s3)
+            blocks.push(seq)
+            sets += 1
+        }
     }
+    return sets
 }
 
 function binarySearch(arr, x, start, end) {
@@ -96,12 +53,27 @@ function binarySearch(arr, x, start, end) {
     // If element at mid is greater than x,
     // search in the left half of mid
     if (arr[mid] > x)
-        return recursiveFunction(arr, x, start, mid - 1);
+        return binarySearch(arr, x, start, mid - 1);
     else
 
         // If element at mid is smaller than x,
         // search in the right half of mid
-        return recursiveFunction(arr, x, mid + 1, end);
+        return binarySearch(arr, x, mid + 1, end);
+}
+
+async function parseTriplet(hand, blocks, sets) {
+    for(let i = 0; i < hand.length; i++) {
+        let s1 = hand[i];
+        if(hand[i + 1] === hand[i] && hand[i + 2] === hand[i]) {
+            let seq = []
+            seq.push(s1)
+            seq.push(hand[i + 1])
+            seq.push(hand[i + 2])
+            blocks.push(seq)
+            sets += 1
+        }
+    }
+    return sets
 }
 
 async function parseHand(hand, interaction) {

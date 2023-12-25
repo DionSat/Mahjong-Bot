@@ -17,6 +17,7 @@ module.exports = async (interaction, hand) => {
         console.log(tiles[k]);
         sets = await parseSequence(tiles[k], blocks, sets)
         sets += await parseTriplet(tiles[k], blocks, sets)
+        pairs = await parsePairs(tiles[k], blocks, pairs)
     }
     console.log("Blocks: ", blocks);
     let shantenScore = calculateShanten(sets, pairs, partial);
@@ -59,6 +60,23 @@ function binarySearch(arr, x, start, end) {
         // If element at mid is smaller than x,
         // search in the right half of mid
         return binarySearch(arr, x, mid + 1, end);
+}
+
+async function parsePairs(hand, blocks, pairs) {
+    let i = 0
+    while (i < hand.length) {
+        let s1 = hand[i];
+        if(hand[i + 1] === hand[i]) {
+            let seq = []
+            seq.push(s1)
+            seq.push(hand[i + 1])
+            blocks.push(seq)
+            pairs += 1
+            i += 2
+        }
+        i += 1
+    }
+    return pairs
 }
 
 async function parseTriplet(hand, blocks, sets) {

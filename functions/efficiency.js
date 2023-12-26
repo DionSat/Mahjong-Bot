@@ -10,21 +10,22 @@ module.exports = async (interaction, hand) => {
     blocks = [];
     let sets = 0;
     let pairs = 0;
-    let partial = 0;
+    let partials = 0;
     for(let k in tiles) {
         let num = tiles[k];
         let i = 0;
         console.log(tiles[k]);
-        sets = await parseSequence(tiles[k], blocks, sets)
-        sets += await parseTriplet(tiles[k], blocks, sets)
+        sets = await parseSequences(tiles[k], blocks, sets)
+        sets += await parseTriplets(tiles[k], blocks, sets)
         pairs = await parsePairs(tiles[k], blocks, pairs)
+        partials = await parsePartials(tiles[k], blocks, partials)
     }
     console.log("Blocks: ", blocks);
-    let shantenScore = calculateShanten(sets, pairs, partial);
+    let shantenScore = calculateShanten(sets, pairs, partials);
     console.log("Shanten: ", shantenScore);
 }
 
-async function parseSequence(hand, blocks, sets) {
+async function parseSequences(hand, blocks, sets) {
     for(let i = 0; i < hand.length; i++) {
         let s1 = hand[i];
         let s2 = binarySearch(hand, hand[i] + 1, i, hand.length);
@@ -65,10 +66,9 @@ function binarySearch(arr, x, start, end) {
 async function parsePairs(hand, blocks, pairs) {
     let i = 0
     while (i < hand.length) {
-        let s1 = hand[i];
         if(hand[i + 1] === hand[i]) {
             let seq = []
-            seq.push(s1)
+            seq.push(hand[i])
             seq.push(hand[i + 1])
             blocks.push(seq)
             pairs += 1
@@ -79,12 +79,11 @@ async function parsePairs(hand, blocks, pairs) {
     return pairs
 }
 
-async function parseTriplet(hand, blocks, sets) {
+async function parseTriplets(hand, blocks, sets) {
     for(let i = 0; i < hand.length; i++) {
-        let s1 = hand[i];
         if(hand[i + 1] === hand[i] && hand[i + 2] === hand[i]) {
             let seq = []
-            seq.push(s1)
+            seq.push(hand[i])
             seq.push(hand[i + 1])
             seq.push(hand[i + 2])
             blocks.push(seq)
@@ -92,6 +91,19 @@ async function parseTriplet(hand, blocks, sets) {
         }
     }
     return sets
+}
+
+async function parsePartials(hand, blocks, partials) {
+    for(let i = 0; i < hand.length; i++) {
+        if(hand[i + 1] === hand[i] + 2 || hand[i] === hand[i] + 1 && hand[i + 1] !== hand[i + 1] + 1) {
+            let seq = []
+            seq.push(hand[i])
+            seq.push(hand[i + 1])
+            blocks.push(seq)
+            partials += 1
+        }
+    }
+    return partials
 }
 
 async function parseHand(hand, interaction) {

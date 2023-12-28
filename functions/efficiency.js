@@ -29,21 +29,19 @@ module.exports = async (interaction, hand) => {
 }
 
 async function parseSequences(hand, blocks, sets) {
-    let arr = hand.slice();
     for(let i = 0; i < hand.length; i++) {
-        let s1 = arr[i];
-        let s2 = binarySearch(arr, arr[i] + 1, i, arr.length);
-        let s3 = binarySearch(arr, arr[i] + 2, i, arr.length);
+        let s2 = binarySearch(hand, hand[i] + 1, i, hand.length);
+        let s3 = binarySearch(hand, hand[i] + 2, i, hand.length);
         if(s2 !== -1 && s3 !== -1) {
             let seq = []
-            seq.push(s1)
-            seq.push(arr[s2])
-            seq.push(arr[s3])
+            seq.push(hand[i])
+            seq.push(hand[s2])
+            seq.push(hand[s3])
             blocks.push(seq)
             sets += 1
-            arr.splice(i, 1)
-            arr.splice(s2, 1)
-            arr.splice(s3, 1)
+            hand.splice(i, 1)
+            hand.splice(s2, 1)
+            hand.splice(s3, 1)
         }
     }
     return sets
@@ -51,23 +49,24 @@ async function parseSequences(hand, blocks, sets) {
 
 function binarySearch(arr, x, start, end) {
     // Base Condition
-    if (start > end) return -1;
+    if (start > end) return -1
     
     // Find the middle index
-    let mid = Math.floor((start + end) / 2);
+    let mid = Math.floor((start + end) / 2)
 
     // Compare mid with given key x
-    if (arr[mid] === x) return mid;
+    if (arr[mid] === x) return arr[mid]
 
     // If element at mid is greater than x,
     // search in the left half of mid
-    if (arr[mid] > x)
-        return binarySearch(arr, x, start, mid - 1);
-    else
-
+    if (arr[mid] > x) {
+        return binarySearch(arr, x, start, mid - 1)
+    }
+    else {
         // If element at mid is smaller than x,
         // search in the right half of mid
-        return binarySearch(arr, x, mid + 1, end);
+        return binarySearch(arr, x, mid + 1, end)
+    }
 }
 
 async function parsePairs(hand, blocks, pairs) {
@@ -80,6 +79,8 @@ async function parsePairs(hand, blocks, pairs) {
             blocks.push(seq)
             pairs += 1
             i += 2
+            hand.splice(i, 1)
+            hand.splice(i + 1, 1)
         }
         i += 1
     }
@@ -97,6 +98,9 @@ async function parseTriplets(hand, blocks, sets) {
             blocks.push(seq)
             sets += 1
             i += 3
+            hand.splice(i, 1)
+            hand.splice(i + 1, 1)
+            hand.splice(i + 2, 1)
         }
         i += 1
     }
@@ -113,6 +117,8 @@ async function parsePartials(hand, blocks, partials) {
             blocks.push(seq)
             partials += 1
             i += 2
+            hand.splice(i, 1)
+            hand.splice(i + 1, 1)
         }
         i += 1
     }
@@ -163,7 +169,7 @@ async function parseHand(hand, interaction) {
 
 function calculateShanten(sets, pairs, partials) {
     let blocks = 0;
-    let constant = 9;
+    let constant = 8;
     let diff = 0;
     if(sets > 0) {
         if(pairs > 0) {

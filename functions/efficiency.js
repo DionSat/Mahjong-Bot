@@ -30,13 +30,13 @@ module.exports = async (interaction, hand) => {
 
 async function parseSequences(hand, blocks, sets) {
     for(let i = 0; i < hand.length; i++) {
-        let s2 = binarySearch(hand, hand[i] + 1, i, hand.length);
-        let s3 = binarySearch(hand, hand[i] + 2, i, hand.length);
+        let s2 = binarySearch(hand, hand[i].number + 1, i, hand.length);
+        let s3 = binarySearch(hand, hand[i].number + 2, i, hand.length);
         if(s2 !== -1 && s3 !== -1) {
             let seq = []
-            seq.push(hand[i])
-            seq.push(hand[s2])
-            seq.push(hand[s3])
+            seq.push(hand[i].number)
+            seq.push(hand[s2].number)
+            seq.push(hand[s3].number)
             blocks.push(seq)
             sets += 1
             hand.splice(i, 1)
@@ -157,7 +157,11 @@ async function parseHand(hand, interaction) {
         }
         else if(isNumeric(hand[i])){
             number = parseInt(hand[i]);
-            tileNumbers.push(number)
+            let tile = {
+                number: number,
+                considered: true
+            };
+            tileNumbers.push(tile)
         }
         else {
             await interaction.editReply({ content: `Warning invalid input. has to use the values 1 - 9 and alpha symbols m, p, s, r and h. Being man, pin, sou, red, and honor tiles respectively. Note that honor tile have the range 1 - 7.`, ephemeral: true });

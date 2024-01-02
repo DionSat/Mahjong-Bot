@@ -38,10 +38,10 @@ async function parseSequences(hand, blocks, sets) {
             seq.push({ number: hand[s2].number, isSeq: true, isTriple: false, isPair: false, isPartial: false})
             seq.push({ number: hand[s3].number, isSeq: true, isTriple: false, isPair: false, isPartial: false})
             blocks.push(seq)
-            sets += 1
             hand[i].considered = false;
             hand[s2].considered = false;
             hand[s3].considered = false;
+            sets += 1
         }
     }
     return sets
@@ -79,10 +79,10 @@ async function parseTriplets(hand, blocks, sets) {
             seq.push({ number: hand[i + 2].number, isSeq: false, isTriple: true, isPair: false, isPartial: false})
             blocks.push(seq)
             sets += 1
-            i += 3
             hand[i].considered = false;
             hand[i + 1].considered = false;
             hand[i + 2].considered = false;
+            i += 3
         }
         i += 1
     }
@@ -93,14 +93,14 @@ async function parsePairs(hand, blocks, pairs) {
     let i = 0
     while (i < hand.length - 1) {
         if(hand[i + 1].number === hand[i].number && hand[i].considered === true && hand[i + 1].considered === true) {
-            let seq = []
-            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-            seq.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-            blocks.push(seq)
+            let pair = []
+            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            blocks.push(pair)
             pairs += 1
-            i += 2
             hand[i].considered = false
             hand[i + 1].considered = false
+            i += 2
         }
         i += 1
     }
@@ -116,14 +116,19 @@ async function parsePartials(hand, blocks, partials) {
             seq.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
             blocks.push(seq)
             partials += 1
-            i += 2
             hand[i].considered = false
             hand[i + 1].considered = false
+            i += 2
         }
         i += 1
     }
     return partials
 }
+
+// A compare function that compares the number property of two objects
+function compareByNumber(a, b) {
+    return a.number - b.number;
+  }
 
 async function parseHand(hand, interaction) {
     tiles = {};
@@ -131,22 +136,22 @@ async function parseHand(hand, interaction) {
 
     for(let i = 0; i < hand.length; i++) {
         if(hand[i] === 'm') {
-            tileNumbers.sort();
+            tileNumbers.sort(compareByNumber);
             tiles['man'] = tileNumbers;
             tileNumbers = [];
         }
         else if(hand[i] === 'p') {
-            tileNumbers.sort();
+            tileNumbers.sort(compareByNumber);
             tiles['pin'] = tileNumbers;
             tileNumbers = [];
         }
         else if(hand[i] === 's') {
-            tileNumbers.sort();
+            tileNumbers.sort(compareByNumber);
             tiles['sou'] = tileNumbers;
             tileNumbers = [];
         }        
         else if(hand[i] === 'h') {
-            tileNumbers.sort();
+            tileNumbers.sort(compareByNumber);
             if(tileNumbers.includes('8') || tileNumbers.includes('9')) {
                 await interaction.editReply({ content: `Warning honor tiles are not valid. Has to be a number 1 - 7 to represent east, west, north, south, green, white, red respectively.`, ephemeral: true });
             }

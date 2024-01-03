@@ -13,7 +13,10 @@ module.exports = async (interaction, hand) => {
     let seqSets = 0
     let pairs = 0;
     let partials = 0;
+    let len = 0
     for(let k in tiles) {
+        len += tiles[k].length
+        if(k === 'honor') continue
         console.log(tiles[k]);
         seqSets = await parseSequences(tiles[k], blocks, seqSets)
         tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
@@ -24,7 +27,7 @@ module.exports = async (interaction, hand) => {
         tripleSets = 0
     }
     console.log("Blocks: ", blocks);
-    let shantenScore = calculateShanten(sets, pairs, partials);
+    let shantenScore = calculateShanten(len, sets, pairs, partials);
     console.log("Shanten: ", shantenScore);
 }
 
@@ -110,14 +113,26 @@ async function parsePairs(hand, blocks, pairs) {
 async function parsePartials(hand, blocks, partials) {
     let i = 0
     while (i < hand.length - 1) {
-        if(hand[i + 1].number === hand[i].number + 2 || hand[i + 1].number === hand[i].number + 1 && hand[i + 2].number !== hand[i + 1].number + 1 && hand[i].considered === true && hand[i + 1].considered === true) {
+        let s2 = binarySearch(hand, hand[i].number + 1, i, hand.length - 1);
+        let s3 = binarySearch(hand, hand[i].number + 2, i, hand.length - 1);
+        if(s2 !== -1 && s3 === -1 && hand[i].considered === true && hand[s2].considered === true) {
             let seq = []
             seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
-            seq.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
+            seq.push({ number: hand[s2].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
             blocks.push(seq)
             partials += 1
             hand[i].considered = false
-            hand[i + 1].considered = false
+            hand[s2].considered = false
+            i += 2
+        }
+        else if(s2 === -1 && s3 !== -1 && hand[i].considered === true && hand[s3].considered === true) {
+            let seq = []
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
+            seq.push({ number: hand[s3].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
+            blocks.push(seq)
+            partials += 1
+            hand[i].considered = false
+            hand[s3].considered = false
             i += 2
         }
         i += 1
@@ -176,38 +191,7 @@ async function parseHand(hand, interaction) {
     return tiles;
 }
 
-function calculateShanten(sets, pairs, partials) {
-    let blocks = 0;
-    let constant = 8;
-    let diff = 0;
-    if(sets > 0) {
-        if(pairs > 0) {
-            diff += 1;
-        }
-        if(sets < 5) {
-            diff += (2 * sets);
-            if(partials > (4 - sets)) {
-                diff += (4 - sets);
-            }
-            else {
-                diff += partials;
-            }
-        }
-        else if (sets > 4) {
-            diff += 8;
-        }
-    }
-    else {
-        if(pairs > 0) {
-            diff += 1;
-        }
-        if(partials > 4) {
-            diff += 4
-        }
-        else if (partials < 5) {
-            diff += partials
-        }
-    }
-    let shanten = constant - diff;
+function calculateShanten(len, sets, pairs, partials) {
+    let shanten = Math.min(8 - 2 * sets - (pairs + partials), 6 - pairs)
     return shanten;
 }

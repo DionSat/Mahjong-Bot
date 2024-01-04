@@ -16,12 +16,15 @@ module.exports = async (interaction, hand) => {
     let len = 0
     for(let k in tiles) {
         len += tiles[k].length
-        if(k === 'honor') continue
+        if(k === 'honor') {
+            pairs += await parsePairs(tiles[k], blocks, pairs)
+            continue
+        }
         console.log(tiles[k]);
         seqSets = await parseSequences(tiles[k], blocks, seqSets)
         tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
-        pairs = await parsePairs(tiles[k], blocks, pairs)
-        partials = await parsePartials(tiles[k], blocks, partials)
+        pairs += await parsePairs(tiles[k], blocks, pairs)
+        partials += await parsePartials(tiles[k], blocks, partials)
         sets += seqSets + tripleSets
         seqSets = 0
         tripleSets = 0

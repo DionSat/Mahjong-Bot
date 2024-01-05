@@ -11,21 +11,24 @@ module.exports = async (interaction, hand) => {
     let sets = 0;
     let tripleSets = 0
     let seqSets = 0
+    let honorPairs = 0
+    let tempPairs = 0
     let pairs = 0;
     let partials = 0;
     let len = 0
     for(let k in tiles) {
         len += tiles[k].length
         if(k === 'honor') {
-            pairs += await parsePairs(tiles[k], blocks, pairs)
+            honorPairs = await parsePairs(tiles[k], blocks, honorPairs)
             continue
         }
         console.log(tiles[k]);
         seqSets = await parseSequences(tiles[k], blocks, seqSets)
         tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
-        pairs += await parsePairs(tiles[k], blocks, pairs)
+        tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
         partials += await parsePartials(tiles[k], blocks, partials)
         sets += seqSets + tripleSets
+        pairs += honorPairs + tempPairs
         seqSets = 0
         tripleSets = 0
     }

@@ -26,7 +26,7 @@ module.exports = async (interaction, hand) => {
         seqSets = await parseSequences(tiles[k], blocks, seqSets)
         tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
         tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
-        partials += await parsePartials(tiles[k], blocks, partials)
+        partials = await parsePartials(tiles[k], blocks, partials)
         sets += seqSets + tripleSets
         pairs += honorPairs + tempPairs
         seqSets = 0
@@ -101,7 +101,8 @@ async function parseTriplets(hand, blocks, sets) {
 async function parsePairs(hand, blocks, pairs) {
     let i = 0
     while (i < hand.length - 1) {
-        if(hand[i + 1].number === hand[i].number && hand[i].considered === true && hand[i + 1].considered === true) {
+        let s2 = binarySearch(hand, hand[i].number, i, hand.length - 1);
+        if(hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
             let pair = []
             pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
             pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})

@@ -8,7 +8,7 @@ module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
     tiles = await parseHand(hand, interaction);
     blocks = [];
-    let sets = 0;
+    let groups = 0;
     let tripleSets = 0
     let seqSets = 0
     let honorPairs = 0
@@ -20,20 +20,22 @@ module.exports = async (interaction, hand) => {
         len += tiles[k].length
         if(k === 'honor') {
             honorPairs = await parsePairs(tiles[k], blocks, honorPairs)
-            continue
         }
-        console.log(tiles[k]);
-        seqSets = await parseSequences(tiles[k], blocks, seqSets)
-        tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
-        tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
-        partials = await parsePartials(tiles[k], blocks, partials)
-        sets += seqSets + tripleSets
+        else {
+            console.log(tiles[k]);
+            seqSets = await parseSequences(tiles[k], blocks, seqSets)
+            tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
+            tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
+            partials = await parsePartials(tiles[k], blocks, partials)
+        }
+        groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
         seqSets = 0
         tripleSets = 0
+        tempPairs = 0
     }
     console.log("Blocks: ", blocks);
-    let shantenScore = calculateShanten(len, sets, pairs, partials);
+    let shantenScore = calculateShanten(len, groups, pairs, partials);
     console.log("Shanten: ", shantenScore);
 }
 
@@ -101,8 +103,23 @@ async function parseTriplets(hand, blocks, sets) {
 async function parsePairs(hand, blocks, pairs) {
     let i = 0
     while (i < hand.length - 1) {
-        let s2 = binarySearch(hand, hand[i].number, i, hand.length - 1);
-        if(hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
+        if(hand.length == 2) {
+            if(hand[i + 1].number === hand[i].number) {
+                let pair = []
+                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                blocks.push(pair)
+                pairs += 1
+                hand[i].considered = false
+                hand[i + 1].considered = false
+                break
+            }
+            else {
+                break
+            }
+        }
+        let s2 = binarySearch(hand, hand[i].number, i + 1, hand.length - 1);
+        if(s2 !== -1 && hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
             let pair = []
             pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
             pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
@@ -198,7 +215,7 @@ async function parseHand(hand, interaction) {
     return tiles;
 }
 
-function calculateShanten(len, sets, pairs, partials) {
-    let shanten = Math.min(8 - 2 * sets - (pairs + partials), 6 - pairs)
+function calculateShanten(len, groups, pairs, partials) {
+    let shanten = Math.min(8 - 2 * groups - Math.max(pairs + partials) - Math.min(1, Math.max(0, pairs + partials - (4 - groups))), 6 - pairs)
     return shanten;
 }

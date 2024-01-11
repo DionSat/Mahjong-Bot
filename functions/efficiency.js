@@ -95,7 +95,9 @@ async function parseTriplets(hand, blocks, sets) {
             hand[i + 2].considered = false;
             i += 3
         }
-        i += 1
+        else {
+            i += 1
+        }
     }
     return sets
 }
@@ -129,7 +131,9 @@ async function parsePairs(hand, blocks, pairs) {
             hand[i + 1].considered = false
             i += 2
         }
-        i += 1
+        else {
+            i += 1
+        }
     }
     return pairs
 }
@@ -159,7 +163,9 @@ async function parsePartials(hand, blocks, partials) {
             hand[s3].considered = false
             i += 2
         }
-        i += 1
+        else {
+            i += 1
+        }
     }
     return partials
 }

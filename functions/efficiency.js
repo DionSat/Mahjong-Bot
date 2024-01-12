@@ -35,7 +35,7 @@ module.exports = async (interaction, hand) => {
         tempPairs = 0
     }
     console.log("Blocks: ", blocks);
-    let shantenScore = calculateShanten(len, groups, pairs, partials);
+    let shantenScore = calculateNormalShanten(len, groups, pairs, partials);
     console.log("Shanten: ", shantenScore);
 }
 
@@ -221,7 +221,40 @@ async function parseHand(hand, interaction) {
     return tiles;
 }
 
-function calculateShanten(len, groups, pairs, partials) {
-    let shanten = Math.min(8 - 2 * groups - Math.max(pairs + partials) - Math.min(1, Math.max(0, pairs + partials - (4 - groups))), 6 - pairs)
-    return shanten;
+function calculateNormalShanten(len, groups, pairs, partials) {
+    // let shanten = Math.min(8 - 2 * groups - Math.max(pairs + partials, Math.floor(len / 3) - groups) - Math.min(1, Math.max(0, pairs + partials - (4 - groups))), 6 - pairs)
+    let constant = 8
+    let diff = 0
+    if(groups > 0) {
+        if(pairs > 0) {
+            diff += 1
+            pairs--
+        }
+        if(groups < 5) {
+            diff += (2 * groups)
+            if(partials + pairs > (4 - groups)) {
+                diff += (4 - groups)
+            }
+            else {
+                diff += partials + pairs
+            }
+        }
+        else if (sets > 4) {
+            diff += 8
+        }
+    }
+    else {
+        if(pairs > 0) {
+            diff += 1
+            pairs--
+        }
+        if(partials + pairs > 4) {
+            diff += 4
+        }
+        else if (partials + pairs < 5) {
+            diff += partials + pairs
+        }
+    }
+    let shanten = constant - diff
+    return shanten
 }

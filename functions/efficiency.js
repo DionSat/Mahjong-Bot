@@ -6,8 +6,10 @@ function isNumeric(str) {
 
 module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
-    tiles = await parseHand(hand, interaction);
-    blocks = [];
+    tiles = await parseHand(hand, interaction)
+    blocks = []
+    sevenPairBlocks = []
+    orphansBlocks = []
     let groups = 0;
     let tripleSets = 0
     let seqSets = 0
@@ -15,8 +17,10 @@ module.exports = async (interaction, hand) => {
     let tempPairs = 0
     let pairs = 0;
     let partials = 0;
+    let totalPairs = 0
     let len = 0
     for(let k in tiles) {
+        let tempTiles = tiles[k]
         len += tiles[k].length
         if(k === 'honor') {
             honorPairs = await parsePairs(tiles[k], blocks, honorPairs)
@@ -28,8 +32,10 @@ module.exports = async (interaction, hand) => {
             tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
             partials = await parsePartials(tiles[k], blocks, partials)
         }
+        totalPairs = await parseTotalPairs(tempTiles, sevenPairsBlocks, totalPairs)
         groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
+        totalPairs = totalPairs + honorPairs
         seqSets = 0
         tripleSets = 0
         tempPairs = 0
@@ -103,6 +109,42 @@ async function parseTriplets(hand, blocks, sets) {
 }
 
 async function parsePairs(hand, blocks, pairs) {
+    let i = 0
+    while (i < hand.length - 1) {
+        if(hand.length == 2) {
+            if(hand[i + 1].number === hand[i].number) {
+                let pair = []
+                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                blocks.push(pair)
+                pairs += 1
+                hand[i].considered = false
+                hand[i + 1].considered = false
+                break
+            }
+            else {
+                break
+            }
+        }
+        let s2 = binarySearch(hand, hand[i].number, i + 1, hand.length - 1);
+        if(s2 !== -1 && hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
+            let pair = []
+            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            blocks.push(pair)
+            pairs += 1
+            hand[i].considered = false
+            hand[i + 1].considered = false
+            i += 2
+        }
+        else {
+            i += 1
+        }
+    }
+    return pairs
+}
+
+async function parseTotalPairs(hand, blocks, pairs) {
     let i = 0
     while (i < hand.length - 1) {
         if(hand.length == 2) {

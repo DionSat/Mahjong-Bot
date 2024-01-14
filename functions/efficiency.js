@@ -35,8 +35,8 @@ module.exports = async (interaction, hand) => {
         tempPairs = 0
     }
     console.log("Blocks: ", blocks);
-    let shantenScore = calculateNormalShanten(len, groups, pairs, partials);
-    console.log("Shanten: ", shantenScore);
+    let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);
+    console.log("Shanten: ", shantenNormalScore);
 }
 
 async function parseSequences(hand, blocks, sets) {

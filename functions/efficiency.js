@@ -6,10 +6,10 @@ function isNumeric(str) {
 
 module.exports = async (interaction, hand) => {
     //There need to be 4 sequences/triplets and a double for there to be a basic yaku
-    tiles = await parseHand(hand, interaction)
-    blocks = []
-    sevenPairBlocks = []
-    orphansBlocks = []
+    let tiles = await parseHand(hand, interaction)
+    let blocks = []
+    let sevenPairBlocks = []
+    let orphansBlocks = []
     let groups = 0;
     let tripleSets = 0
     let seqSets = 0
@@ -18,9 +18,12 @@ module.exports = async (interaction, hand) => {
     let pairs = 0;
     let partials = 0;
     let totalPairs = 0
+    let suitPairs = 0
     let len = 0
+    let teriminals = 0
     for(let k in tiles) {
-        let tempTiles = tiles[k]
+        let checkSevenTiles = tiles[k].map(a => {return {...a}})
+        let checkOrphanTiles = tiles[k].map(a => {return {...a}})
         len += tiles[k].length
         if(k === 'honor') {
             honorPairs = await parsePairs(tiles[k], blocks, honorPairs)
@@ -32,13 +35,14 @@ module.exports = async (interaction, hand) => {
             tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
             partials = await parsePartials(tiles[k], blocks, partials)
         }
-        totalPairs = await parseTotalPairs(tempTiles, sevenPairsBlocks, totalPairs)
+        suitPairs = await parseTotalPairs(checkSevenTiles, sevenPairBlocks, suitPairs)
         groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
-        totalPairs = totalPairs + honorPairs
+        totalPairs += suitPairs + honorPairs
         seqSets = 0
         tripleSets = 0
         tempPairs = 0
+        suitPairs = 0
     }
     console.log("Blocks: ", blocks);
     let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);

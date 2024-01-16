@@ -46,6 +46,7 @@ module.exports = async (interaction, hand) => {
     }
     console.log("Blocks: ", blocks);
     let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);
+    let shanten = Math.min(shantenNormalScore, 6 - totalPairs)
     console.log("Shanten: ", shantenNormalScore);
 }
 

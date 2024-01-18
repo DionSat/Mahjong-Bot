@@ -21,6 +21,7 @@ module.exports = async (interaction, hand) => {
     let suitPairs = 0
     let len = 0
     let teriminals = 0
+    let tempTerminals = 0
     for(let k in tiles) {
         let checkSevenTiles = tiles[k].map(a => {return {...a}})
         let checkOrphanTiles = tiles[k].map(a => {return {...a}})
@@ -36,13 +37,16 @@ module.exports = async (interaction, hand) => {
             partials = await parsePartials(tiles[k], blocks, partials)
         }
         suitPairs = await parseTotalPairs(checkSevenTiles, sevenPairBlocks, suitPairs)
+        tempTerminals = await parseTerminals(checkSevenTiles, sevenPairBlocks, suitPairs)
         groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
         totalPairs += suitPairs + honorPairs
+        teriminals += tempTerminals
         seqSets = 0
         tripleSets = 0
         tempPairs = 0
         suitPairs = 0
+        tempTerminals = 0
     }
     console.log("Blocks: ", blocks);
     let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);
@@ -56,9 +60,9 @@ async function parseSequences(hand, blocks, sets) {
         let s3 = binarySearch(hand, hand[i].number + 2, i, hand.length - 1);
         if(s2 !== -1 && s3 !== -1 && hand[i].considered === true && hand[s2].considered === true && hand[s3].considered === true) {
             let seq = []
-            seq.push({ number: hand[i].number, isSeq: true, isTriple: false, isPair: false, isPartial: false})
-            seq.push({ number: hand[s2].number, isSeq: true, isTriple: false, isPair: false, isPartial: false})
-            seq.push({ number: hand[s3].number, isSeq: true, isTriple: false, isPair: false, isPartial: false})
+            seq.push({ number: hand[i].number, isSeq: true, isTriple: false, isPair: false, isPartial: false, isTerminal: false})
+            seq.push({ number: hand[s2].number, isSeq: true, isTriple: false, isPair: false, isPartial: false, isTerminal: false})
+            seq.push({ number: hand[s3].number, isSeq: true, isTriple: false, isPair: false, isPartial: false, isTerminal: false})
             blocks.push(seq)
             hand[i].considered = false;
             hand[s2].considered = false;
@@ -96,9 +100,9 @@ async function parseTriplets(hand, blocks, sets) {
     while (i < hand.length - 2) {
         if(hand[i + 1].number === hand[i].number && hand[i + 2].number === hand[i].number && hand[i].considered === true && hand[i + 1].considered === true && hand[i + 2].considered === true) {
             let seq = []
-            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false})
-            seq.push({ number: hand[i + 1].number, isSeq: false, isTriple: true, isPair: false, isPartial: false})
-            seq.push({ number: hand[i + 2].number, isSeq: false, isTriple: true, isPair: false, isPartial: false})
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: false})
+            seq.push({ number: hand[i + 1].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: false})
+            seq.push({ number: hand[i + 2].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: false})
             blocks.push(seq)
             sets += 1
             hand[i].considered = false;
@@ -119,8 +123,8 @@ async function parsePairs(hand, blocks, pairs) {
         if(hand.length == 2) {
             if(hand[i + 1].number === hand[i].number) {
                 let pair = []
-                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
+                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
                 blocks.push(pair)
                 pairs += 1
                 hand[i].considered = false
@@ -134,8 +138,8 @@ async function parsePairs(hand, blocks, pairs) {
         let s2 = binarySearch(hand, hand[i].number, i + 1, hand.length - 1);
         if(s2 !== -1 && hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
             let pair = []
-            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
+            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
             blocks.push(pair)
             pairs += 1
             hand[i].considered = false
@@ -155,8 +159,8 @@ async function parseTotalPairs(hand, blocks, pairs) {
         if(hand.length == 2) {
             if(hand[i + 1].number === hand[i].number) {
                 let pair = []
-                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+                pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
+                pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
                 blocks.push(pair)
                 pairs += 1
                 hand[i].considered = false
@@ -170,8 +174,8 @@ async function parseTotalPairs(hand, blocks, pairs) {
         let s2 = binarySearch(hand, hand[i].number, i + 1, hand.length - 1);
         if(s2 !== -1 && hand[s2].number === hand[i].number && hand[i].considered === true && hand[s2].considered === true) {
             let pair = []
-            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
-            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false})
+            pair.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
+            pair.push({ number: hand[i + 1].number, isSeq: false, isTriple: false, isPair: true, isPartial: false, isTerminal: false})
             blocks.push(pair)
             pairs += 1
             hand[i].considered = false
@@ -192,8 +196,8 @@ async function parsePartials(hand, blocks, partials) {
         let s3 = binarySearch(hand, hand[i].number + 2, i, hand.length - 1);
         if(s2 !== -1 && s3 === -1 && hand[i].considered === true && hand[s2].considered === true) {
             let seq = []
-            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
-            seq.push({ number: hand[s2].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true, isTerminal: false})
+            seq.push({ number: hand[s2].number, isSeq: false, isTriple: false, isPair: false, isPartial: true, isTerminal: false})
             blocks.push(seq)
             partials += 1
             hand[i].considered = false
@@ -202,8 +206,8 @@ async function parsePartials(hand, blocks, partials) {
         }
         else if(s2 === -1 && s3 !== -1 && hand[i].considered === true && hand[s3].considered === true) {
             let seq = []
-            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
-            seq.push({ number: hand[s3].number, isSeq: false, isTriple: false, isPair: false, isPartial: true})
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: false, isPair: false, isPartial: true, isTerminal: false})
+            seq.push({ number: hand[s3].number, isSeq: false, isTriple: false, isPair: false, isPartial: true, isTerminal: false})
             blocks.push(seq)
             partials += 1
             hand[i].considered = false
@@ -215,6 +219,20 @@ async function parsePartials(hand, blocks, partials) {
         }
     }
     return partials
+}
+
+async function parseTerminals(hand, blocks, terms) {
+    let i = 0
+    while (i < hand.length - 1) {
+        if(hand[i].number === 1 || hand[i].number === 9) {
+            let seq = []
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
+            blocks.push(seq)
+            terms += 1
+        }
+        i += 1
+    }
+    return terms
 }
 
 // A compare function that compares the number property of two objects

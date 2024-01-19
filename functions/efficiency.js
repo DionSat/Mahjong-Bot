@@ -37,7 +37,7 @@ module.exports = async (interaction, hand) => {
             partials = await parsePartials(tiles[k], blocks, partials)
         }
         suitPairs = await parseTotalPairs(checkSevenTiles, sevenPairBlocks, suitPairs)
-        tempTerminals = await parseTerminals(checkSevenTiles, sevenPairBlocks, suitPairs)
+        tempTerminals = await parseTerminals(checkOrphanTiles, orphansBlocks, tempTerminals)
         groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
         totalPairs += suitPairs + honorPairs
@@ -223,11 +223,21 @@ async function parsePartials(hand, blocks, partials) {
 
 async function parseTerminals(hand, blocks, terms) {
     let i = 0
+    let one = false
+    let nine = false
     while (i < hand.length - 1) {
-        if(hand[i].number === 1 || hand[i].number === 9) {
+        if(hand[i].number === 1 && one === false) {
             let seq = []
             seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
             blocks.push(seq)
+            one = true
+            terms += 1
+        }
+        else if(hand[i].number === 9 && nine === false) {
+            let seq = []
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
+            blocks.push(seq)
+            nine = true
             terms += 1
         }
         i += 1

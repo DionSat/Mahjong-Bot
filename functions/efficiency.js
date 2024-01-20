@@ -51,7 +51,7 @@ module.exports = async (interaction, hand) => {
     console.log("Blocks: ", blocks);
     let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);
     let shanten = Math.min(shantenNormalScore, 6 - totalPairs)
-    console.log("Shanten: ", shantenNormalScore);
+    console.log("Shanten: ", shanten);
 }
 
 async function parseSequences(hand, blocks, sets) {
@@ -225,6 +225,28 @@ async function parseTerminals(hand, blocks, terms) {
     let i = 0
     let one = false
     let nine = false
+    while (i < hand.length - 1) {
+        if(hand[i].number === 1 && one === false) {
+            let seq = []
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
+            blocks.push(seq)
+            one = true
+            terms += 1
+        }
+        else if(hand[i].number === 9 && nine === false) {
+            let seq = []
+            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
+            blocks.push(seq)
+            nine = true
+            terms += 1
+        }
+        i += 1
+    }
+    return terms
+}
+
+async function parseHonorTerminals(hand, blocks, terms) {
+    let i = 0
     while (i < hand.length - 1) {
         if(hand[i].number === 1 && one === false) {
             let seq = []

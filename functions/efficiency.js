@@ -28,6 +28,7 @@ module.exports = async (interaction, hand) => {
         len += tiles[k].length
         if(k === 'honor') {
             honorPairs = await parsePairs(tiles[k], blocks, honorPairs)
+            tempTerminals = await parseHonorTerminals(tiles[k], orphansBlocks, tempTerminals)
         }
         else {
             console.log(tiles[k]);
@@ -35,9 +36,9 @@ module.exports = async (interaction, hand) => {
             tripleSets = await parseTriplets(tiles[k], blocks, tripleSets)
             tempPairs = await parsePairs(tiles[k], blocks, tempPairs)
             partials = await parsePartials(tiles[k], blocks, partials)
+            tempTerminals = await parseTerminals(checkOrphanTiles, orphansBlocks, tempTerminals)
         }
         suitPairs = await parseTotalPairs(checkSevenTiles, sevenPairBlocks, suitPairs)
-        tempTerminals = await parseTerminals(checkOrphanTiles, orphansBlocks, tempTerminals)
         groups += seqSets + tripleSets
         pairs += honorPairs + tempPairs
         totalPairs += suitPairs + honorPairs
@@ -50,7 +51,7 @@ module.exports = async (interaction, hand) => {
     }
     console.log("Blocks: ", blocks);
     let shantenNormalScore = calculateNormalShanten(len, groups, pairs, partials);
-    let shanten = Math.min(shantenNormalScore, 6 - totalPairs)
+    let shanten = Math.min(shantenNormalScore, 6 - totalPairs, 13 - terminals)
     console.log("Shanten: ", shanten);
 }
 
@@ -225,7 +226,7 @@ async function parseTerminals(hand, blocks, terms) {
     let i = 0
     let one = false
     let nine = false
-    while (i < hand.length - 1) {
+    for(i = 0; i < hand.length; i++) {
         if(hand[i].number === 1 && one === false) {
             let seq = []
             seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
@@ -240,29 +241,21 @@ async function parseTerminals(hand, blocks, terms) {
             nine = true
             terms += 1
         }
-        i += 1
     }
     return terms
 }
 
 async function parseHonorTerminals(hand, blocks, terms) {
     let i = 0
-    while (i < hand.length - 1) {
-        if(hand[i].number === 1 && one === false) {
+    let counts = []
+    for(i = 0; i < hand.length; i++) {
+        if(counts[hand[i].number] == undefined) {
+            counts[hand[i].number] = 1;
             let seq = []
             seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
             blocks.push(seq)
-            one = true
-            terms += 1
+            terms++;
         }
-        else if(hand[i].number === 9 && nine === false) {
-            let seq = []
-            seq.push({ number: hand[i].number, isSeq: false, isTriple: true, isPair: false, isPartial: false, isTerminal: true})
-            blocks.push(seq)
-            nine = true
-            terms += 1
-        }
-        i += 1
     }
     return terms
 }
